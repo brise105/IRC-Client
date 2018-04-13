@@ -22,7 +22,7 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.io.DataInputStream;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 
 import java.net.UnknownHostException;
@@ -72,7 +72,6 @@ class Client {
 
         Socket clientSocket = null;
         BufferedReader inFromServer = null;
-        //DataInputStream inFromServer = null;
         DataOutputStream outFromClient = null;
 
         try {
@@ -86,11 +85,28 @@ class Client {
 
                 outFromClient.writeBytes("NICK " + nick + "\r\n"); //pong server w/ nick paramters
                 outFromClient.writeBytes("USER " + user + " 0 * :" + name + "\r\n"); //pong server w/ username paramters
+                outFromClient.writeBytes("JOIN #hellchannel \r\n");  
 
                 String serverMsg;
                 while ((serverMsg = inFromServer.readLine()) != null) {
                     System.out.println(serverMsg);
+                    if (serverMsg.startsWith("PING")) {
+                       String pingContents = serverMsg.split(" ",2)[1];
+                       outFromClient.writeBytes("PONG" + pingContents);
+                    }//else if (serverMsg("Quit")) {
+                     //send quit message to end socket connection  
+                    //}
                 }
+                String clientMsg;
+                //while ((clientMsg = outFromClient.read()) != "Quit") {
+                   //if (clientMsg.startsWith("Join")){
+                      //String channel = clientMsg.split(" ", 2)[1];
+                      //outFromClient.writeBytes("Join" + channel);
+                      //System.out.println("Connected to " + channel);
+                   //} 
+                //}
+                //outFromClient.writeBytes("JOIN #hellchannel \r\n"); //test connecting to channel
+
                 outFromClient.close();
                 inFromServer.close();
                 clientSocket.close();
