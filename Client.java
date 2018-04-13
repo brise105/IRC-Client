@@ -71,12 +71,14 @@ class Client {
         System.out.println();
 
         Socket clientSocket = null;
-        DataInputStream inFromServer = null;
+        BufferedReader inFromServer = null;
+        //DataInputStream inFromServer = null;
         DataOutputStream outFromClient = null;
 
         try {
             clientSocket = new Socket(host, port);
-            inFromServer = new DataInputStream(clientSocket.getInputStream());
+            inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            //inFromServer = new DataInputStream((clientSocket.getInputStream()));
             outFromClient = new DataOutputStream(clientSocket.getOutputStream());
 
             if (clientSocket != null
