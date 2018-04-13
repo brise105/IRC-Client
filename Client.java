@@ -22,7 +22,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 
 import java.net.UnknownHostException;
@@ -79,6 +78,7 @@ class Client {
             inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             outFromClient = new DataOutputStream(clientSocket.getOutputStream());
 
+
             if (clientSocket != null
                 && inFromServer != null
                 && outFromClient != null) {
@@ -97,6 +97,7 @@ class Client {
                      //send quit message to end socket connection  
                     //}
                 }
+
                 String clientMsg;
                 //while ((clientMsg = outFromClient.read()) != "Quit") {
                    //if (clientMsg.startsWith("Join")){
@@ -105,7 +106,6 @@ class Client {
                       //System.out.println("Connected to " + channel);
                    //} 
                 //}
-                //outFromClient.writeBytes("JOIN #hellchannel \r\n"); //test connecting to channel
 
                 outFromClient.close();
                 inFromServer.close();
