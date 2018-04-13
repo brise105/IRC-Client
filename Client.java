@@ -12,8 +12,8 @@
 *  9)Profit
 *  10)/quit on command or kick
 *
-*  @author: Brandon Briseno
-*  Email:  brise105@mail.chapman.edu
+*  @author: Brandon Briseno & Alfonso Castanos
+*  Email:  brise105@mail.chapman.edu & casta145@mail.chapman.edu
 *  Date:  4/12/2018
 *  @version: 1.1
 */
@@ -78,7 +78,6 @@ class Client {
         try {
             clientSocket = new Socket(host, port);
             inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            //inFromServer = new DataInputStream((clientSocket.getInputStream()));
             outFromClient = new DataOutputStream(clientSocket.getOutputStream());
 
             if (clientSocket != null
