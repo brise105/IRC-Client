@@ -15,7 +15,7 @@ This is an Internet Relay Chat client program which should follow the following 
 *  6)PONG msg back to the server from the client
 *  7)Create/join chatroom
 *  8)Self promotion
-*  9)Profit
+*  9)Listen for commands
 *  10)/quit on command or kick
 
 ## Checkstyles:
