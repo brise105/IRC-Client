@@ -5,7 +5,7 @@
 * Protocol: https://tools.ietf.org/html/rfc2812#section-3.1.5
 * API Documentation: http://www.jibble.org/javadocs/pircbot/index.html
 
-# Program Description
+## Program Description
 This is an Internet Relay Chat client program which should follow the following protocol:
 *  1)Get identifity data
 *  2)Attempt connection to IRC Server
@@ -29,7 +29,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 ## Checkstyles:
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
 
-### To Do List:
+## To Do List:
 
 - [ ] Brainstorm bot operations
 - [ ] Implement 3 bot operations
