@@ -19,8 +19,9 @@ This is an Internet Relay Chat client program which should follow the following 
 *  10)/quit on command or kick
 
 ## Instructions:
-* 1) Compile: ```javac -classpath pircbot.jar;. *.java```
-* 2) Run: ```java -classpath pircbot.jar;. BotMain```
+1) Compile: ```javac -classpath pircbot.jar;. *.java```
+2) Run: ```java -classpath pircbot.jar;. BotMain```
+3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
 
 
 ## Checkstyles:
