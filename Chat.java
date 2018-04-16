@@ -27,7 +27,7 @@ import java.io.DataOutputStream;
 import java.net.UnknownHostException;
 import java.io.IOException;
 
-class ChatClient {
+class Chat {
     public static void main(String[] args) throws Exception {
         //User Input:
         BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
