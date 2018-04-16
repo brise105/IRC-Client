@@ -18,5 +18,10 @@ This is an Internet Relay Chat client program which should follow the following 
 *  9)Listen for commands
 *  10)/quit on command or kick
 
+## Instructions:
+* 1) Compile: ```javac -classpath pircbot.jar;. *.java```
+* 2) Run: ```java -classpath pircbot.jar;. BotMain```
+
+
 ## Checkstyles:
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
