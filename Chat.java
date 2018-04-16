@@ -36,7 +36,7 @@ class Chat {
         String portDelimiter = ":";
 
         //get user input
-        System.out.print("Hostname (ex: chat.freenode.net:6667): ");
+        System.out.print("Hostname (ex: irc.synirc.net:6697): ");
         String host; //instantize string holder for host name
         host = userInput.readLine(); //what the emails about
         int port; //instantize int holder for port number
