@@ -3,6 +3,7 @@
 * SID: 1932124 & 2283681
 * Class: CPSC 353-02 (Dr. Fahy)
 * Protocol: https://tools.ietf.org/html/rfc2812#section-3.1.5
+* API Documentation: http://www.jibble.org/javadocs/pircbot/index.html
 
 # Program Description
 This is an Internet Relay Chat client program which should follow the following protocol:
