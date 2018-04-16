@@ -27,3 +27,13 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 
 ## Checkstyles:
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
+
+### To Do List:
+
+- [ ] Brainstorm bot operations
+- [ ] Implement 3 bot operations
+- [ ] Implement 9 bot operations
+- [ ] Implement 20 bot operations
+- [ ] Verify identity
+- [ ] Multi-channel listening
+- [ ] Allow chat functionality on chat client
