@@ -2,7 +2,7 @@
 * Name: Brandon Briseno & Alfonso Castanos
 * SID: 1932124 & 2283681
 * Class: CPSC 353-02 (Dr. Fahy)
-* Protocol: https://tools.ietf.org/html/rfc2812#section-3.1.5
+* Protocol: https://tools.ietf.org/html/rfc2812#section-1.2
 * API Documentation: http://www.jibble.org/javadocs/pircbot/index.html
 
 ## Program Description
