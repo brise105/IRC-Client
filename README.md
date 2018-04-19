@@ -28,7 +28,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 2) Run: ```java -classpath pircbot.jar;. BotMain```
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
 
-**Commands: 
+**Commands:**
 * ```time```: tells current time for user
 
 
