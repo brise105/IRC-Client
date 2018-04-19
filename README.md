@@ -20,8 +20,10 @@ This is an Internet Relay Chat client program which should follow the following 
 Currently, we are working on two parts: the bot client and the chat client. The webclient listed below is currently only for debugging and prototyping. The final result will hopefully be able to be tested completely in console.
 
 ## Instructions:
-1) Compile: ```javac -classpath pircbot.jar;. *.java```
-2) Run: ```java -classpath pircbot.jar;. BotMain```
+1a) Compile (Linux): ```javac -classpath pircbot.jar:. *.java```
+2a) Run (Linux): ```java -classpath pircbot.jar:. BotMain```
+1b) Compile (Windows): ```javac -classpath pircbot.jar;. *.java```
+2b) Run (Windows): ```java -classpath pircbot.jar;. BotMain```
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
  * type: ```time```
 
