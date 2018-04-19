@@ -14,18 +14,22 @@ This is an Internet Relay Chat client program which should follow the following 
 *  5)Wait for PING echo request from server to the client
 *  6)PONG echo response back to the server from the client
 *  7)Repeat 5-6 throughout to maintain connection
+
 Currently, we are working on two parts: the bot client and the chat client. The webclient listed below is currently only for debugging and prototyping. The final result will hopefully be able to be tested completely in console.
 
 ## Instructions:
 **Linux:**
 1) Compile: ```javac -classpath pircbot.jar:. *.java```
 2) Run: ```java -classpath pircbot.jar:. BotMain```
+3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
 
 **Windows:**
 1) Compile: ```javac -classpath pircbot.jar;. *.java```
 2) Run: ```java -classpath pircbot.jar;. BotMain```
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
- * commands: ```time```: tells current time for user
+
+**Commands: 
+* ```time```: tells current time for user
 
 
 ## Checkstyles:
