@@ -7,16 +7,13 @@
 
 ## Program Description
 This is an Internet Relay Chat client program which should follow the following protocol:
-*  1)Get identifity data
-*  2)Attempt connection to IRC Server
-*  3)Establish socket connection
-*  4)Send server data
-*  5)Wait for PING msg from server to the client
-*  6)PONG msg back to the server from the client
-*  7)Create/join chatroom
-*  8)Self promotion
-*  9)Listen for commands
-*  10)/quit on command or kick
+*  1)Get identity data
+*  2)Attempt connection to an IRC Server
+*  3)Establish a socket connection
+*  4)Send server identity data
+*  5)Wait for PING echo request from server to the client
+*  6)PONG echo response back to the server from the client
+*  7)Repeat 5-6 throughout to maintain connection
 Currently, we are working on two parts: the bot client and the chat client. The webclient listed below is currently only for debugging and prototyping. The final result will hopefully be able to be tested completely in console.
 
 ## Instructions:
@@ -36,7 +33,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 
 ## To Do List:
 
-- [ ] Brainstorm bot operations
+- [x] Brainstorm bot operations
 - [ ] Implement 3 bot operations
 - [ ] Implement 9 bot operations
 - [ ] Implement 20 bot operations
