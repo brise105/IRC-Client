@@ -38,6 +38,11 @@ public class Bot extends PircBot {
              temp = ((temp-32)*5)/9;
              String cel = "Temperature in Celsius: " + temp;
              sendMessage(channel, sender + ": " + cel);
+         } else if (MSG.substring(1,4).equals("cel")) {
+             float temp = Float.parseFloat(MSG.substring(4,MSG.length()));
+             temp = 9*(temp/5)+32;
+             String fahr = "Temperature in Fahrenheit: " + temp;
+             sendMessage(channel, sender + ": " + fahr);
          }
    }
 }
