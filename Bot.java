@@ -43,6 +43,21 @@ public class Bot extends PircBot {
              temp = 9*(temp/5)+32;
              String fahr = "Temperature in Fahrenheit: " + temp;
              sendMessage(channel, sender + ": " + fahr);
+         }else if (MSG.substring(1,6).equals("palin")) {
+             String orig = MSG.substring(6,MSG.length());
+             String rev = "";
+             String senOut;
+             int len = orig.length();
+             for (int i = len - 1; i >= 0; i--) {
+               rev = rev + orig.charAt(i);
+             }
+             if (orig.equals(rev)) {
+               senOut = "Entered string is a palindrome.";
+               sendMessage(channel, sender + ": " + senOut);
+             } else {
+               senOut = "Entered string is not a palindrome.";
+               sendMessage(channel, sender + ": " + senOut);
+             }
          }
    }
 }
