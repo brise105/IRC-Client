@@ -29,7 +29,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
 
 **Commands:**
-* ```time```: tells current time for user
+* ```!time```: tells current time for user
 
 
 ## Checkstyles:
