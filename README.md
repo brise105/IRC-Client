@@ -38,7 +38,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 ## To Do List:
 
 - [x] Brainstorm bot operations
-- [ ] Implement 3 bot operations
+- [x] Implement 3 bot operations
 - [ ] Implement 9 bot operations
 - [ ] Implement 20 bot operations
 - [ ] Verify identity
