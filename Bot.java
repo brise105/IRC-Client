@@ -13,7 +13,8 @@ public class Bot extends PircBot {
         if (MSG.substring(1,5).equals("time")) {
             String time = new java.util.Date().toString();
             sendMessage(channel, sender + ": The time is now " + time);
-	} else if (MSG.substring(1,4).equals("fib")) {
+	}
+        if (MSG.substring(1,4).equals("fib")) {
             int n1 = 0;
             int n2 = 1;
             int n3;
@@ -33,17 +34,20 @@ public class Bot extends PircBot {
               }
             }
             sendMessage(channel, sender + ": " + sequence); 
-         } else if (MSG.substring(1,5).equals("fahr")) {
+         }
+         if (MSG.substring(1,5).equals("fahr")) {
 	     float temp = Float.parseFloat(MSG.substring(5,MSG.length()));
              temp = ((temp-32)*5)/9;
              String cel = "Temperature in Celsius: " + temp;
              sendMessage(channel, sender + ": " + cel);
-         } else if (MSG.substring(1,4).equals("cel")) {
+         }
+         if (MSG.substring(1,4).equals("cel")) {
              float temp = Float.parseFloat(MSG.substring(4,MSG.length()));
              temp = 9*(temp/5)+32;
              String fahr = "Temperature in Fahrenheit: " + temp;
              sendMessage(channel, sender + ": " + fahr);
-         } else if (MSG.substring(1,6).equals("palin")) {
+         }
+         if (MSG.substring(1,6).equals("palin")) {
              String orig = MSG.substring(6,MSG.length());
              String rev = "";
              String senOut;
@@ -58,7 +62,8 @@ public class Bot extends PircBot {
                senOut = "Entered string is not a palindrome.";
                sendMessage(channel, sender + ": " + senOut);
              }
-        } else if (MSG.substring(1,4).equals("rev")) {
+        }
+        if (MSG.substring(1,4).equals("rev")) {
              String orig = MSG.substring(4,MSG.length());
              String rev = "";
              int len = orig.length();
@@ -67,5 +72,21 @@ public class Bot extends PircBot {
              }
              sendMessage(channel, sender + ": " + rev);
         }
+        if (MSG.substring(1,4).equals("cal")) {
+             String equation = MSG.substring(4,MSG.length());
+             if (equation.contains("+")) {
+               String[] parts = equation.split("\\+");
+               //for (int i = 0; i < 
+               //how do i make it to iterate through multiple parts to not just have only two numbers               
+               Float num1 = Float.parseFloat(parts[0].toString());
+               Float num2 = Float.parseFloat(parts[1].toString());
+               String ans = Float.toString(num1 + num2);
+               sendMessage(channel, sender + ": " + ans);
+             }
+        }
+
+
+
+
    }
 }
