@@ -76,12 +76,42 @@ public class Bot extends PircBot {
              String equation = MSG.substring(4,MSG.length());
              if (equation.contains("+")) {
                String[] parts = equation.split("\\+");
-               //for (int i = 0; i < 
                //how do i make it to iterate through multiple parts to not just have only two numbers               
                Float num1 = Float.parseFloat(parts[0].toString());
                Float num2 = Float.parseFloat(parts[1].toString());
                String ans = Float.toString(num1 + num2);
                sendMessage(channel, sender + ": " + ans);
+             } else if (equation.contains("-")) {
+               String[] parts = equation.split("\\-");
+               //iterate
+               Float num1 = Float.parseFloat(parts[0].toString());
+               Float num2 = Float.parseFloat(parts[1].toString());
+               String ans = Float.toString(num1 - num2);
+               sendMessage(channel, sender + ": " + ans);
+             } else if (equation.contains("/")) {
+               String[] parts = equation.split("\\/");
+               //iterate
+               Float num1 = Float.parseFloat(parts[0].toString());
+               Float num2 = Float.parseFloat(parts[1].toString());
+               String ans = Float.toString(num1/num2);
+               sendMessage(channel, sender + ": " + ans);
+             } else if (equation.contains("%")) {
+               String[] parts = equation.split("\\%");
+               //iterate
+               Float num1 = Float.parseFloat(parts[0].toString());
+               Float num2 = Float.parseFloat(parts[1].toString());
+               String ans = Float.toString(num1 % num2);
+               sendMessage(channel, sender + ": " + ans);
+             } else if (equation.contains("*")) {
+               String[] parts = equation.split("\\*");
+               //iterate
+               Float num1 = Float.parseFloat(parts[0].toString());
+               Float num2 = Float.parseFloat(parts[1].toString());
+               String ans = Float.toString(num1 * num2);
+               sendMessage(channel, sender + ": " + ans);
+             } else {
+               String error = "Error: Enter correct parameters";
+               sendMessage(channel, sender + ": " + error);
              }
         }
 
