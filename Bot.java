@@ -10,11 +10,11 @@ public class Bot extends PircBot {
     public void onMessage(String channel, String sender,
                           String login, String hostname, String message) {
         String MSG = message.toLowerCase();
-        if (MSG.substring(1,5).equals("time")) {
+        if (MSG.substring(0,5).equals("!time")) {
             String time = new java.util.Date().toString();
             sendMessage(channel, sender + ": The time is now " + time);
 	}
-        if (MSG.substring(1,4).equals("fib")) {
+        else if (MSG.substring(1,4).equals("fib")) {
             int n1 = 0;
             int n2 = 1;
             int n3;
@@ -35,19 +35,19 @@ public class Bot extends PircBot {
             }
             sendMessage(channel, sender + ": " + sequence); 
          }
-         if (MSG.substring(1,5).equals("fahr")) {
+         else if (MSG.substring(1,5).equals("fahr")) {
 	     float temp = Float.parseFloat(MSG.substring(5,MSG.length()));
              temp = ((temp-32)*5)/9;
              String cel = "Temperature in Celsius: " + temp;
              sendMessage(channel, sender + ": " + cel);
          }
-         if (MSG.substring(1,4).equals("cel")) {
+         else if (MSG.substring(1,4).equals("cel")) {
              float temp = Float.parseFloat(MSG.substring(4,MSG.length()));
              temp = 9*(temp/5)+32;
              String fahr = "Temperature in Fahrenheit: " + temp;
              sendMessage(channel, sender + ": " + fahr);
          }
-         if (MSG.substring(1,6).equals("palin")) {
+         else if (MSG.substring(1,6).equals("palin")) {
              String orig = MSG.substring(6,MSG.length());
              String rev = "";
              String senOut;
@@ -63,7 +63,7 @@ public class Bot extends PircBot {
                sendMessage(channel, sender + ": " + senOut);
              }
         }
-        if (MSG.substring(1,4).equals("rev")) {
+        else if (MSG.substring(1,4).equals("rev")) {
              String orig = MSG.substring(4,MSG.length());
              String rev = "";
              int len = orig.length();
@@ -72,7 +72,7 @@ public class Bot extends PircBot {
              }
              sendMessage(channel, sender + ": " + rev);
         }
-        if (MSG.substring(1,4).equals("cal")) {
+        else if (MSG.substring(1,4).equals("cal")) {
              String equation = MSG.substring(4,MSG.length());
              if (equation.contains("+")) {
                String[] parts = equation.split("\\+");
