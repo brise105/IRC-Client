@@ -30,6 +30,10 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 
 **Commands:**
 * ```!time```: tells current time for user
+* ```!fahr```: fahrinheight to celcius
+* ```!cel```: celcius to fahrinheight
+* ```!rev```: word-reverser
+* ```!cal```: performs basic arthmetic upon two values
 
 
 ## Checkstyles:
