@@ -15,15 +15,17 @@ public class Bot extends PircBot {
             sendMessage(channel, sender + ": the time is now " + time);
 	      }
         else if (MSG.substring(0,7).equals("!facto ")) {
-            int n, c, fact = 1;
+            int n = 1;
+            int m = 1;
+            int facto = 1;
             n = Integer.parseInt(MSG.substring(7,MSG.length())); 
             if (n < 0) {
                sendMessage(channel, sender + ": the number should not be negative!");
             } else {
-                for (c = 1; c <= n; c++)
-                 fact = fact*c;
+                for (m = 1; m <= n; m++)
+                 facto = facto*m;
  
-                 sendMessage(channel, sender + ": the factorial of "+n+" is "+fact);
+                 sendMessage(channel, sender + ": the factorial of " + n + " is " + facto);
             }             
         }
         else if (MSG.substring(0,5).equals("!fib ")) {
