@@ -30,6 +30,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 
 **Commands:**
 * ```!time```: tells current time for user
+* ```!facto```: factorial of n
 * ```!fahr```: fahrinheight to celcius
 * ```!cel```: celcius to fahrinheight
 * ```!rev```: word-reverser
