@@ -13,7 +13,19 @@ public class Bot extends PircBot {
         if (MSG.substring(0,5).equals("!time")) {
             String time = new java.util.Date().toString();
             sendMessage(channel, sender + ": the time is now " + time);
-	}
+	      }
+        else if (MSG.substring(0,7).equals("!facto ")) {
+            int n, c, fact = 1;
+            n = Integer.parseInt(MSG.substring(7,MSG.length())); 
+            if (n < 0) {
+               sendMessage(channel, sender + ": the number should not be negative!");
+            } else {
+                for (c = 1; c <= n; c++)
+                 fact = fact*c;
+ 
+                 sendMessage(channel, sender + ": the factorial of "+n+" is "+fact);
+            }             
+        }
         else if (MSG.substring(0,5).equals("!fib ")) {
             int n1 = 0;
             int n2 = 1;
@@ -36,7 +48,7 @@ public class Bot extends PircBot {
             sendMessage(channel, sender + ": " + sequence); 
          }
          else if (MSG.substring(0,6).equals("!fahr ")) {
-	     float temp = Float.parseFloat(MSG.substring(6,MSG.length()));
+	           float temp = Float.parseFloat(MSG.substring(6,MSG.length()));
              temp = ((temp-32)*5)/9;
              String cel = "temperature in Celsius: " + temp;
              sendMessage(channel, sender + ": " + cel);
