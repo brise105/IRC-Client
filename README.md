@@ -29,6 +29,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
 
 **Commands:**
+* ```!cat```: returns a random image of a cat
 * ```!time```: tells current time for user
 * ```!facto```: factorial of n
 * ```!fahr```: fahrinheight to celcius
