@@ -10,10 +10,29 @@ public class Bot extends PircBot {
     public void onMessage(String channel, String sender,
                           String login, String hostname, String message) {
         String MSG = message.toLowerCase();
-        if (MSG.substring(0,5).equals("!time")) {
+        if (MSG.substring(0,4).equals("!cat")) {
+            Random rand = new Random();
+            int lines = 0;
+            String line = "";
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader("cats.txt"));
+                    while (reader.readLine() != null) lines++; {
+                      reader.close();
+                    }
+            } catch (IOException ex) {} 
+            int r = rand.nextInt(lines) + 1;
+            try (BufferedReader br = new BufferedReader(new FileReader("cats.txt"))) {
+                for (int i = 0; i < r; i++) {
+                    br.readLine();
+                }
+                line = br.readLine();
+            } catch (IOException ex) {} 
+            sendMessage(channel, sender + ": " + line);
+        }
+        else if (MSG.substring(0,5).equals("!time")) {
             String time = new java.util.Date().toString();
             sendMessage(channel, sender + ": the time is now " + time);
-	      }
+        }
         else if (MSG.substring(0,7).equals("!facto ")) {
             int n = 1;
             int m = 1;
@@ -128,9 +147,5 @@ public class Bot extends PircBot {
                sendMessage(channel, sender + ": " + error);
              }
         }
-
-
-
-
-   }
+  }
 }
