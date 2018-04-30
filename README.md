@@ -47,6 +47,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 - [x] Implement 3 bot operations
 - [ ] Implement 9 bot operations
 - [ ] Implement 20 bot operations
-- [ ] Verify identity
+- [x] Establish identity
+- [x] Establish & maintain connection
 - [ ] Multi-channel listening
 - [ ] Allow chat functionality on chat client
