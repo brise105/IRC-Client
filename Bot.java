@@ -10,13 +10,12 @@ public class Bot extends PircBot {
     public void onMessage(String channel, String sender,
                           String login, String hostname, String message) {
         String MSG = message.toLowerCase();
-<<<<<<< HEAD
+
         if (MSG.substring(0,5).equals("!time")) {
             String time = new java.util.Date().toString();
             sendMessage(channel, sender + ": The time is now " + time);
 	}
         else if (MSG.substring(0,4).equals("!fib")) {
-=======
         if (MSG.substring(0,4).equals("!cat")) {
             Random rand = new Random();
             int lines = 0;
@@ -54,8 +53,8 @@ public class Bot extends PircBot {
                  sendMessage(channel, sender + ": the factorial of " + n + " is " + facto);
             }             
         }
+
         else if (MSG.substring(0,5).equals("!fib ")) {
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
             int n1 = 0;
             int n2 = 1;
             int n3;
@@ -76,32 +75,21 @@ public class Bot extends PircBot {
             }
             sendMessage(channel, sender + ": " + sequence); 
          }
-<<<<<<< HEAD
-         else if (MSG.substring(0,5).equals("!fahr")) {
-	     float temp = Float.parseFloat(MSG.substring(5,MSG.length()));
-=======
+         
          else if (MSG.substring(0,6).equals("!fahr ")) {
-	           float temp = Float.parseFloat(MSG.substring(6,MSG.length()));
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
+	     float temp = Float.parseFloat(MSG.substring(6,MSG.length()));
              temp = ((temp-32)*5)/9;
              String cel = "temperature in Celsius: " + temp;
              sendMessage(channel, sender + ": " + cel);
          }
-<<<<<<< HEAD
-         else if (MSG.substring(0,4).equals("!cel")) {
-             float temp = Float.parseFloat(MSG.substring(4,MSG.length()));
-=======
+
          else if (MSG.substring(0,5).equals("!cel ")) {
              float temp = Float.parseFloat(MSG.substring(5,MSG.length()));
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
              temp = 9*(temp/5)+32;
              String fahr = "temperature in Fahrenheit: " + temp;
              sendMessage(channel, sender + ": " + fahr);
          }
-<<<<<<< HEAD
-         else if (MSG.substring(0,6).equals("!palin")) {
-             String orig = MSG.substring(6,MSG.length());
-=======
+         
          else if (MSG.substring(0,7).equals("!palin ")) {
              String orig = MSG.substring(7,MSG.length());
 >>>>>>> 3f13292b2568173e247f221577924e137575b3bf
