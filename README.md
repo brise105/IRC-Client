@@ -29,6 +29,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
 
 **Commands:**
+<<<<<<< HEAD
 * ```!time```: tells current time for user
 * ```!cat```: returns a random image of a cat
 * ```!fib```: factorial of n
@@ -37,6 +38,16 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 * ```!cel```: fahrenheit to celsius
 * ```!rev```: word-reverser
 * ```!cal```: performs basic arthmetic upon two values 
+=======
+* ```!cat```: returns a random image of a cat
+* ```!time```: tells current time for user
+* ```!facto```: factorial of n
+* ```!fahr```: fahrinheight to celcius
+* ```!cel```: celcius to fahrinheight
+* ```!rev```: word-reverser
+* ```!cal```: performs basic arthmetic upon two values
+
+>>>>>>> 3f13292b2568173e247f221577924e137575b3bf
 
 ## Checkstyles:
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
@@ -47,6 +58,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 - [x] Implement 3 bot operations
 - [ ] Implement 9 bot operations
 - [ ] Implement 20 bot operations
-- [ ] Verify identity
+- [x] Establish identity
+- [x] Establish & maintain connection
 - [ ] Multi-channel listening
 - [ ] Allow chat functionality on chat client
