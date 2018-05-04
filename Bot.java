@@ -92,7 +92,6 @@ public class Bot extends PircBot {
          
          else if (MSG.substring(0,7).equals("!palin ")) {
              String orig = MSG.substring(7,MSG.length());
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
              String rev = "";
              String senOut;
              int len = orig.length();
@@ -107,13 +106,8 @@ public class Bot extends PircBot {
                sendMessage(channel, sender + ": " + senOut);
              }
         }
-<<<<<<< HEAD
-        else if (MSG.substring(0,4).equals("!rev")) {
-             String orig = MSG.substring(4,MSG.length());
-=======
         else if (MSG.substring(0,5).equals("!rev ")) {
              String orig = MSG.substring(5,MSG.length());
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
              String rev = "";
              int len = orig.length();
              for (int i = len - 1; i >= 0; i--) {
@@ -121,13 +115,9 @@ public class Bot extends PircBot {
              }
              sendMessage(channel, sender + ": " + rev);
         }
-<<<<<<< HEAD
-        else if (MSG.substring(0,4).equals("!cal")) {
-             String equation = MSG.substring(4,MSG.length());
-=======
+
         else if (MSG.substring(0,5).equals("!cal ")) {
              String equation = MSG.substring(5,MSG.length());
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
              if (equation.contains("+")) {
                String[] parts = equation.split("\\+");
                Float num1 = Float.parseFloat(parts[0].toString());
@@ -163,7 +153,7 @@ public class Bot extends PircBot {
                sendMessage(channel, sender + ": " + error);
              }
         }
-<<<<<<< HEAD
+
         else if {
              if (MSG.substring(0,4).equals("!nyq") {
                String freq =  
@@ -173,7 +163,5 @@ public class Bot extends PircBot {
 
 
    }
-=======
   }
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
 }
