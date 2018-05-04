@@ -32,22 +32,12 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 <<<<<<< HEAD
 * ```!time```: tells current time for user
 * ```!cat```: returns a random image of a cat
-* ```!fib```: factorial of n
 * ```!fib```: returns fibonnacci sequence up to n
-* ```!fahr```: celsius to fahrenheit
-* ```!cel```: fahrenheit to celsius
-* ```!rev```: word-reverser
-* ```!cal```: performs basic arthmetic upon two values 
-=======
-* ```!cat```: returns a random image of a cat
-* ```!time```: tells current time for user
 * ```!facto```: factorial of n
-* ```!fahr```: fahrinheight to celcius
-* ```!cel```: celcius to fahrinheight
+* ```!cel```: fahrinheight to celcius
+* ```!fahr```: celcius to fahrinheight
 * ```!rev```: word-reverser
 * ```!cal```: performs basic arthmetic upon two values
-
->>>>>>> 3f13292b2568173e247f221577924e137575b3bf
 
 ## Checkstyles:
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
