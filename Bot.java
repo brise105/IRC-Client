@@ -15,8 +15,8 @@ public class Bot extends PircBot {
             String time = new java.util.Date().toString();
             sendMessage(channel, sender + ": The time is now " + time);
 	}
-        else if (MSG.substring(0,4).equals("!fib")) {
-        if (MSG.substring(0,4).equals("!cat")) {
+
+        else if (MSG.substring(0,4).equals("!cat")) {
             Random rand = new Random();
             int lines = 0;
             String line = "";
@@ -35,10 +35,7 @@ public class Bot extends PircBot {
             } catch (IOException ex) {} 
             sendMessage(channel, sender + ": " + line);
         }
-        else if (MSG.substring(0,5).equals("!time")) {
-            String time = new java.util.Date().toString();
-            sendMessage(channel, sender + ": the time is now " + time);
-        }
+
         else if (MSG.substring(0,7).equals("!facto ")) {
             int n = 1;
             int m = 1;
@@ -76,15 +73,15 @@ public class Bot extends PircBot {
             sendMessage(channel, sender + ": " + sequence); 
          }
          
-         else if (MSG.substring(0,6).equals("!fahr ")) {
+         else if (MSG.substring(0,5).equals("!cel ")) {
 	     float temp = Float.parseFloat(MSG.substring(6,MSG.length()));
              temp = ((temp-32)*5)/9;
              String cel = "temperature in Celsius: " + temp;
              sendMessage(channel, sender + ": " + cel);
          }
 
-         else if (MSG.substring(0,5).equals("!cel ")) {
-             float temp = Float.parseFloat(MSG.substring(5,MSG.length()));
+         else if (MSG.substring(0,6).equals("!fahr ")) {
+             float temp = Float.parseFloat(MSG.substring(6,MSG.length()));
              temp = 9*(temp/5)+32;
              String fahr = "temperature in Fahrenheit: " + temp;
              sendMessage(channel, sender + ": " + fahr);
