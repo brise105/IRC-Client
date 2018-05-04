@@ -29,8 +29,14 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
 
 **Commands:**
-* ```time```: tells current time for user
-
+* ```!time```: tells current time for user
+* ```!cat```: returns a random image of a cat
+* ```!fib```: factorial of n
+* ```!fib```: returns fibonnacci sequence up to n
+* ```!fahr```: celsius to fahrenheit
+* ```!cel```: fahrenheit to celsius
+* ```!rev```: word-reverser
+* ```!cal```: performs basic arthmetic upon two values 
 
 ## Checkstyles:
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
