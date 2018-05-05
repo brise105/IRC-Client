@@ -1,5 +1,5 @@
 import org.jibble.pircbot.*;
-import Bot;
+//import Bot;
 
 public class BotMain {
     public static void main(String[] args) throws Exception {  

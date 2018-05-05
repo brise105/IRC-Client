@@ -11,12 +11,7 @@ public class Bot extends PircBot {
                           String login, String hostname, String message) {
         String MSG = message.toLowerCase();
 
-        if (MSG.substring(0,5).equals("!time")) {
-            String time = new java.util.Date().toString();
-            sendMessage(channel, sender + ": The time is now " + time);
-	}
-
-        else if (MSG.substring(0,4).equals("!cat")) {
+        if (MSG.substring(0,4).equals("!cat")) {
             Random rand = new Random();
             int lines = 0;
             String line = "";
@@ -35,6 +30,13 @@ public class Bot extends PircBot {
             } catch (IOException ex) {} 
             sendMessage(channel, sender + ": " + line);
         }
+
+        else if (MSG.substring(0,5).equals("!time")) {
+            String time = new java.util.Date().toString();
+            sendMessage(channel, sender + ": The time is now " + time);
+	      }
+
+
 
         else if (MSG.substring(0,7).equals("!facto ")) {
             int n = 1;
