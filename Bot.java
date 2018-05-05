@@ -150,6 +150,36 @@ public class Bot extends PircBot {
                sendMessage(channel, sender + ": " + error);
              }
         }
+        else if (MSG.substring(0,5).equals("!bin ")) {
+             String num = MSG.substring(5,MSG.length());
+             int dec = Integer.parseInt(num);
+             String bin = "";
+             while (dec > 0) {
+               bin = dec % 2 + bin;
+               dec = dec / 2;
+             }
+             String ans  = "Conversion of decimal to binary is: " + bin;
+             sendMessage(channel, sender + ": " + ans);
+        }
+       else if (MSG.substring(0,9).equals("!largnum ")) {
+            String[] nums = MSG.substring(9,MSG.length()).split(" ");
+            int num1 = Integer.parseInt(nums[0].toString());
+            int num2 = Integer.parseInt(nums[1].toString());
+            int num3 = Integer.parseInt(nums[2].toString());
+            int largest;
+
+            if (num1 > num2 && num1 > num3)
+              largest = num1;
+            else if (num2 > num1 && num2 > num3)
+              largest = num2;
+            else
+              largest = num3;
+
+            String ans = "Largest number of the three is: " + largest;
+            sendMessage(channel, sender + ": " + ans);        
+        }
+
+
 
 
    }
