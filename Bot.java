@@ -161,7 +161,20 @@ public class Bot extends PircBot {
              String ans  = "Conversion of decimal to binary is: " + bin;
              sendMessage(channel, sender + ": " + ans);
         }
-       else if (MSG.substring(0,9).equals("!largnum ")) {
+        else if (MSG.substring(0,5).equals("!dec ")) {
+            int num = Integer.parseInt(MSG.substring(5,MSG.length()));
+            int dec = 0;
+            int x = 0;
+
+            while (num != 0) {
+              dec += ((num%10) * Math.pow(2,x));
+              num = num/10;
+              x++;
+            }
+            String ans = "Conversion of binary to decimal is: " + dec;
+            sendMessage(channel, sender + ": " + ans);
+        }
+        else if (MSG.substring(0,9).equals("!largnum ")) {
             String[] nums = MSG.substring(9,MSG.length()).split(" ");
             int num1 = Integer.parseInt(nums[0].toString());
             int num2 = Integer.parseInt(nums[1].toString());
