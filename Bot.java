@@ -1,3 +1,7 @@
+//Name: Brandon Briseno & Alfonso Castanos
+//SID: 1932124 & 2283681
+//Class: CPSC 353-02 (Dr. Fahy)
+//Program description: this is the implementation of the BotMain.java
 import org.jibble.pircbot.*;
 import java.lang.*;
 import java.io.*;
