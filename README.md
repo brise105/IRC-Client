@@ -22,27 +22,23 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 1) Compile: ```javac -classpath pircbot.jar:. *.java```
 2) Run: ```java -classpath pircbot.jar:. BotMain```
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
+    * Disclaimer: We are working on a client to interact w/ the Bot, but main focus of this project was on the Bot
 
 **Windows:**
 1) Compile: ```javac -classpath pircbot.jar;. *.java```
 2) Run: ```java -classpath pircbot.jar;. BotMain```
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
-
+    * Disclaimer: We are working on a client to interact w/ the Bot, but main focus of this project was on the Bot
 **Commands:**
 * ```!time```: tells current time for user
 * ```!cat```: returns a random image of a cat
-* ```!fib```: returns fibonnacci sequence up to n
-  * *!command+space+number*
-* ```!facto```: factorial of n
-  * *!command+space+number*
-* ```!cel```: fahrinheight to celcius
-  * *!command+space+number*
-* ```!fahr```: celcius to fahrinheight
-  * *!command+space+number*
-* ```!rev```: word-reverser
-  * *!command+space+word*
-* ```!cal```: performs basic arthmetic upon two values
-  * *!command+space+number+operator+number*
+* ```!fib``` n: returns fibonnacci sequence up to n
+* ```!facto``` n: factorial of n
+* ```!cel``` n: converts n degrees fahrinheight to celcius
+* ```!fahr``` n: converts n degrees celcius to fahrinheight
+* ```!rev``` s: reverses string s
+* ```!cal```: performs basic arthmetic upon two values: n & m
+  * !cal+space+n+operator+m
   * *Single operations only!*
 
 
