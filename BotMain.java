@@ -1,17 +1,25 @@
-//Name: Brandon Briseno & Alfonso Castanos
-//SID: 1932124 & 2283681
-//Class: CPSC 353-02 (Dr. Fahy)
-//Program description: this is the entry point for the bot. there is where we instantiatize our connection info.
-//Version: 1.2
+/**
+*  this program this is the entry point for the bot. 
+*  there is where the bot sets its connection info.
+*
+*  @author: Brandon Briseno & Alfonso Castanos
+*  Email:  brise105@mail.chapman.edu & casta145@mail.chapman.edu
+*  Date:  5/6/2018
+*  @version: 2.0
+*/
 
-import org.jibble.pircbot.*;
-//import Bot;
+import org.jibble.pircbot.IrcException;
+//import org.jibble.pircbot.NickAlreadyInUseException;
+import org.jibble.pircbot.OutputThread;
+import org.jibble.pircbot.PircBot;
+//import org.jibble.pircbot.ReplyConstants;
+//import org.jibble.pircbot.User;
 
-public class BotMain {
-    public static void main(String[] args) throws Exception {  
-        Bot bot = new Bot(); //create a new bot object
-        bot.setVerbose(true); //enable debugger
-        bot.connect("irc.synirc.net"); //connect to server
-        bot.joinChannel("#TeamSameTeam"); //join channel
-    }
+class BotMain {
+  public static void main(String[] args) throws Exception {  
+    Bot bot = new Bot(); //create a new bot object
+    bot.setVerbose(true); //enable debugger
+    bot.connect("irc.synirc.net"); //connect to server
+    bot.joinChannel("#TeamSameTeam"); //join channel
+  }
 }
