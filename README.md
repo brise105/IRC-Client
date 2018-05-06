@@ -23,12 +23,14 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 2) Run: ```java -classpath pircbot.jar:. BotMain```
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
     * Disclaimer: We are working on a client to interact w/ the Bot, but main focus of this project was on the Bot
+    * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
 
 **Windows:**
 1) Compile: ```javac -classpath pircbot.jar;. *.java```
 2) Run: ```java -classpath pircbot.jar;. BotMain```
 3) Test: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
     * Disclaimer: We are working on a client to interact w/ the Bot, but main focus of this project was on the Bot
+    * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
 
 **Commands:**
 * ```!time```: tells current time for user
