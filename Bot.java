@@ -100,12 +100,14 @@ public class Bot extends PircBot {
     } else if (metaMsg.substring(0,5).equals("!cel ")) {
       float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
       temp = ((temp - 32) * 5) / 9;
-      String cel = "temperature in Celsius: " + temp;
+      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      String cel = tempOg + " degrees Fahrenheit equals " + temp + " degrees Celcius";
       sendMessage(channel, sender + ": " + cel);
     } else if (metaMsg.substring(0,6).equals("!fahr ")) {
       float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
       temp = 9 * (temp / 5) + 32;
-      String fahr = "temperature in Fahrenheit: " + temp;
+      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      String fahr = tempOg + " degrees Celcius equals" + temp + " degrees Fahrenheit";
       sendMessage(channel, sender + ": " + fahr);
     } else if (metaMsg.substring(0,7).equals("!palin ")) {
       String orig = metaMsg.substring(7,metaMsg.length());
