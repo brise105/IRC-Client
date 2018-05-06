@@ -64,19 +64,6 @@ public class Bot extends PircBot {
     } else if (metaMsg.substring(0,5).equals("!time")) {
       String time = new java.util.Date().toString();
       sendMessage(channel, sender + ": The time is now " + time);
-    } else if (metaMsg.substring(0,7).equals("!facto ")) {
-      int n = 1;
-      int m = 1;
-      int facto = 1;
-      n = Integer.parseInt(metaMsg.substring(7,metaMsg.length())); 
-      if (n < 0) {
-        sendMessage(channel, sender + ": the number should not be negative!");
-      } else {
-        for (m = 1; m <= n; m++) {
-          facto = facto * m;
-        }
-        sendMessage(channel, sender + ": the factorial of " + n + " is " + facto);
-      }             
     } else if (metaMsg.substring(0,5).equals("!fib ")) {
       int n1 = 0;
       int n2 = 1;
@@ -97,33 +84,6 @@ public class Bot extends PircBot {
         }
       }
       sendMessage(channel, sender + ": " + sequence); 
-    } else if (metaMsg.substring(0,5).equals("!cel ")) {
-      float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      temp = ((temp - 32) * 5) / 9;
-      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      String cel = tempOg + " degrees Fahrenheit equals " + temp + " degrees Celcius";
-      sendMessage(channel, sender + ": " + cel);
-    } else if (metaMsg.substring(0,6).equals("!fahr ")) {
-      float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      temp = 9 * (temp / 5) + 32;
-      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      String fahr = tempOg + " degrees Celcius equals" + temp + " degrees Fahrenheit";
-      sendMessage(channel, sender + ": " + fahr);
-    } else if (metaMsg.substring(0,7).equals("!palin ")) {
-      String orig = metaMsg.substring(7,metaMsg.length());
-      String rev = "";
-      String senOut;
-      int len = orig.length();
-      for (int i = len - 1; i >= 0; i--) {
-        rev = rev + orig.charAt(i);
-      }
-      if (orig.equals(rev)) {
-        senOut = orig + " is a palindrome.";
-        sendMessage(channel, sender + ": " + senOut);
-      } else {
-        senOut = orig + " is not a palindrome.";
-        sendMessage(channel, sender + ": " + senOut);
-      }
     } else if (metaMsg.substring(0,5).equals("!rev ")) {
       String orig = metaMsg.substring(5,metaMsg.length());
       String rev = "";
@@ -190,6 +150,46 @@ public class Bot extends PircBot {
       }
       String ans = "Conversion of binary to decimal is: " + dec;
       sendMessage(channel, sender + ": " + ans);
-    }
+    }else if (metaMsg.substring(0,5).equals("!cel ")) {
+      float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      temp = ((temp - 32) * 5) / 9;
+      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      String cel = tempOg + " degrees Fahrenheit equals " + temp + " degrees Celcius";
+      sendMessage(channel, sender + ": " + cel);
+    } else if (metaMsg.substring(0,6).equals("!fahr ")) {
+      float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      temp = 9 * (temp / 5) + 32;
+      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      String fahr = tempOg + " degrees Celcius equals " + temp + " degrees Fahrenheit";
+      sendMessage(channel, sender + ": " + fahr);
+    } else if (metaMsg.substring(0,7).equals("!facto ")) {
+      int n = 1;
+      int m = 1;
+      int facto = 1;
+      n = Integer.parseInt(metaMsg.substring(7,metaMsg.length())); 
+      if (n < 0) {
+        sendMessage(channel, sender + ": the number should not be negative!");
+      } else {
+        for (m = 1; m <= n; m++) {
+          facto = facto * m;
+        }
+        sendMessage(channel, sender + ": the factorial of " + n + " is " + facto);
+      }             
+    } else if (metaMsg.substring(0,7).equals("!palin ")) {
+      String orig = metaMsg.substring(7,metaMsg.length());
+      String rev = "";
+      String senOut;
+      int len = orig.length();
+      for (int i = len - 1; i >= 0; i--) {
+        rev = rev + orig.charAt(i);
+      }
+      if (orig.equals(rev)) {
+        senOut = orig + " is a palindrome.";
+        sendMessage(channel, sender + ": " + senOut);
+      } else {
+        senOut = orig + " is not a palindrome.";
+        sendMessage(channel, sender + ": " + senOut);
+      }
+    } 
   }
 }
