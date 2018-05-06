@@ -2,7 +2,7 @@ Project name: IRC-Client
 Programmers: Brandon Briseno & Alfonso Castanos
 Code Reviewer: Dawson Jung
 
-On a scale of 1 to 5, I give this code a rating of _5_ based on the following criteria:
+On a scale of 1 to 6, I give this code a rating of _5_ based on the following criteria:
 
 1  I was not able to compile the program due to insufficient information in the README.md file.
 
