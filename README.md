@@ -42,8 +42,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
   * !cal+space+n+operator+m
   * *Single operations only!*
 
-
-## Checkstyles:
+**Checkstyles:**
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
 
 ## To Do List:
