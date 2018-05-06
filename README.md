@@ -32,11 +32,19 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 * ```!time```: tells current time for user
 * ```!cat```: returns a random image of a cat
 * ```!fib```: returns fibonnacci sequence up to n
+  * *!command+space+number*
 * ```!facto```: factorial of n
+  * *!command+space+number*
 * ```!cel```: fahrinheight to celcius
+  * *!command+space+number*
 * ```!fahr```: celcius to fahrinheight
+  * *!command+space+number*
 * ```!rev```: word-reverser
+  * *!command+space+word*
 * ```!cal```: performs basic arthmetic upon two values
+  * *!command+space+number+operator+number*
+  * *Single operations only!*
+
 
 ## Checkstyles:
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
@@ -45,8 +53,9 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 
 - [x] Brainstorm bot operations
 - [x] Implement 3 bot operations
-- [ ] Implement 9 bot operations
+- [x] Implement 9 bot operations
 - [ ] Implement 20 bot operations
+- [ ] Exception handling/backend feedback for bad inputs
 - [x] Establish identity
 - [x] Establish & maintain connection
 - [ ] Multi-channel listening
