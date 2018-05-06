@@ -39,7 +39,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 * ```!fahr``` n: converts n degrees celcius to fahrinheight
 * ```!rev``` s: reverses string s
 * ```!cal```: performs basic arthmetic upon two values: n & m
-  * !cal+space+n+operator+m
+  * *!cal+space+n+operator+m*
   * *Single operations only!*
 
 **Checkstyles:**
