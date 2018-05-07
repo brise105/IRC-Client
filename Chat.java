@@ -111,7 +111,8 @@ class Chat {
             System.out.println(serverMsg);
             System.out.println("PONG " + serverMsg.substring(5));
             outFromClient.writeBytes("PONG " + serverMsg.substring(5) + "\r\n");
-            outFromClient.writeBytes("JOIN #TeamSameTeam" + " 0 * :" + serverMsg + "\r\n");             
+            outFromClient.writeBytes("JOIN #TeamSameTeam" + " 0 * :" 
+                                     + serverMsg + "\r\n");             
           } else {
             System.out.println(serverMsg);
           }
