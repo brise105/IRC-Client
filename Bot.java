@@ -161,7 +161,7 @@ public class Bot extends PircBot {
       temp = 9 * (temp / 5) + 32;
       float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
       String fahr = tempOg + " degrees Celsius equals " + temp + " degrees Fahrenheit";
-      sendMessage(channel, sender + ": " + fahr);
+      sendMessage(channel, sender + ": " + fahr); 
     } else if (metaMsg.substring(0,7).equals("!facto ")) {
       int n = 1;
       int m = 1;
@@ -190,6 +190,18 @@ public class Bot extends PircBot {
         senOut = orig + " is not a palindrome.";
         sendMessage(channel, sender + ": " + senOut);
       }
-    } 
+    } else if (metaMsg.substring(0,8).equals("!ctdown ")) {
+      int tim = Integer.parseInt(metaMsg.substring(8,metaMsg.length()));
+      do {
+           //Thread.sleep(1000);
+           sendMessage(channel, sender + ": " + (tim / 1));
+           tim = tim - 1;
+      } while (tim != 0);
+      //Thread.sleep(1000);
+      sendMessage(channel, sender + ": Time's Up!"); 
+    } else {
+      String errormsg = "Please enter correct command input. Type '!help' for list of commands";
+      sendMessage(channel, sender + ": " + errormsg);
+    }
   }
 }
