@@ -111,11 +111,8 @@ class Chat {
             System.out.println(serverMsg);
             System.out.println("PONG " + serverMsg.substring(5));
             outFromClient.writeBytes("PONG " + serverMsg.substring(5) + "\r\n");
-            //outFromClient.flush();
           } else {
-            // Print the raw line received by the bot.
             System.out.println(serverMsg);
-            //return;
           }
           if (serverMsg.contains("433")) {
             System.out.println("ERROR: username is already in use!");
@@ -129,11 +126,8 @@ class Chat {
             System.out.println(serverMsgE);
             System.out.println("PONG " + serverMsgE.substring(5));
             outFromClient.writeBytes("PONG " + serverMsgE.substring(5) + "\r\n");
-            //outFromClient.flush();
           } else {
-            // Print the raw line received by the bot.
             System.out.println(serverMsgE);
-            //return;
           }
         }
         //outFromClient.writeBytes("JOIN #TeamSameTeam\r\n"); 
