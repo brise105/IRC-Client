@@ -43,7 +43,7 @@ Currently, we are working on two parts: the bot client and the chat client. The 
 * ```!cal```: performs basic arthmetic upon two values: n & m
   * *!cal+space+n+operator+m*
   * *Single operations only!*
-  * ```!bin``` n: converts decimal number n to binary
+* ```!bin``` n: converts decimal number n to binary
 
 **Checkstyles:**
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
