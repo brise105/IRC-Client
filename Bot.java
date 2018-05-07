@@ -150,7 +150,7 @@ public class Bot extends PircBot {
       }
       String ans = "Conversion of binary to decimal is: " + dec;
       sendMessage(channel, sender + ": " + ans);
-    }else if (metaMsg.substring(0,5).equals("!cel ")) {
+    } else if (metaMsg.substring(0,5).equals("!cel ")) {
       float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
       temp = ((temp - 32) * 5) / 9;
       float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));

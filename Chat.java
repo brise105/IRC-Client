@@ -15,16 +15,21 @@
 *  @author: Brandon Briseno & Alfonso Castanos
 *  Email:  brise105@mail.chapman.edu & casta145@mail.chapman.edu
 *  Date:  5/6/2018
-*  @version: 1.1
+*  @version: 3.6
 */
 import java.io.BufferedReader;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import java.lang.NullPointerException;
+
 import java.net.Socket;
 
+import java.net.SocketException;
 import java.net.UnknownHostException;
+
 
 class Chat {
   public static void main(String[] args) throws Exception {
@@ -35,18 +40,29 @@ class Chat {
     String portDelimiter = ":";
 
     //get user input
-    System.out.print("Hostname (ex: irc.synirc.net:6697): ");
+    System.out.print("Hostname (ex: irc.synirc.net:6667): ");
     String host; //instantize string holder for host name
     host = userInput.readLine(); //what the emails about
+
     int port; //instantize int holder for port number
     String[] parse = host.split(portDelimiter);
-
     host = parse[0]; //read line from beginning, up until ':' delimter is read
-    port = Integer.parseInt(parse[1]); //read string array @index 0 after ':'
+    int temp = 0;
+    try {
+      temp = Integer.parseInt(parse[1]); //read string array @index 0 after ':'
+    } catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("ERROR: the expected input is 'host:port#'");
+      System.exit(0);
+    }
+    port = temp;
 
     System.out.print("Nickname: ");
     String nick; //instantize string holder for nickname/screen name
     nick = userInput.readLine(); //user's screen name
+    if (nick.equals("")) {
+      System.out.println("ERROR: no nickname given");
+      System.exit(0);
+    }
 
     System.out.print("Full name (optional): ");
     String name; //instantize string holder for custom/optional name
@@ -59,6 +75,10 @@ class Chat {
     String user; //instantize string holder for user sign-in name
     user = userInput.readLine(); //users sign in user name, can be password protected
     System.out.println();
+    if (user.equals("")) {
+      System.out.println("ERROR: no username given");
+      System.exit(0);
+    }
 
     System.out.println("/***********************************************/");
     System.out.println("RECEIVED BY SERVER:");
@@ -84,25 +104,46 @@ class Chat {
 
         outFromClient.writeBytes("NICK " + nick + "\r\n"); 
         outFromClient.writeBytes("USER " + user + " 0 * :" + name + "\r\n");
-        outFromClient.writeBytes("JOIN #hellchannel \r\n");  
 
         String serverMsg;
         while ((serverMsg = inFromServer.readLine()) != null) {
-          System.out.println(serverMsg);
-          if (serverMsg.startsWith("PING")) {
-            String pingContents = serverMsg.split(" ",2)[1];
-            outFromClient.writeBytes("PONG" + pingContents);
+          if (serverMsg.toLowerCase().startsWith("ping")) {
+            System.out.println(serverMsg);
+            System.out.println("PONG " + serverMsg.substring(5));
+            outFromClient.writeBytes("PONG " + serverMsg.substring(5) + "\r\n");
+            //outFromClient.flush();
+          } else {
+            // Print the raw line received by the bot.
+            System.out.println(serverMsg);
+            //return;
+          }
+          if (serverMsg.contains("433")) {
+            System.out.println("ERROR: username is already in use!");
+            System.exit(0);
+          } 
+        }
+        boolean isRunning = true; 
+        String serverMsgE = inFromServer.readLine();
+        while (isRunning) {
+          if (serverMsgE.toLowerCase().startsWith("ping")) {
+            System.out.println(serverMsgE);
+            System.out.println("PONG " + serverMsgE.substring(5));
+            outFromClient.writeBytes("PONG " + serverMsgE.substring(5) + "\r\n");
+            //outFromClient.flush();
+          } else {
+            // Print the raw line received by the bot.
+            System.out.println(serverMsgE);
+            //return;
           }
         }
-        String clientMsg;
-
-        outFromClient.close();
-        inFromServer.close();
-        clientSocket.close();
-      }
-    } catch (UnknownHostException e) {
-      e.printStackTrace();
-      System.out.println("ERROR: Hostname could not be found!");
+        //outFromClient.writeBytes("JOIN #TeamSameTeam\r\n"); 
+        // String userMsg; //instantize string holder for host name
+        // userMsg = userInput.readLine(); //what the emails about
+        // outFromClient.writeBytes("TeamSameTeam :" nick + userMsg);
+      } 
+      //System.out.println(serverMsg);
+    } catch (NullPointerException e) {
+      System.out.println("ERROR: a connection could not be established!");
     }
   }
 }
