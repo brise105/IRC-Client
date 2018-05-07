@@ -107,10 +107,11 @@ class Chat {
 
         String serverMsg;
         while ((serverMsg = inFromServer.readLine()) != null) {
-          if (serverMsg.toLowerCase().startsWith("ping")) {
+          if (serverMsg.startsWith("PING")) {
             System.out.println(serverMsg);
             System.out.println("PONG " + serverMsg.substring(5));
             outFromClient.writeBytes("PONG " + serverMsg.substring(5) + "\r\n");
+            outFromClient.writeBytes("JOIN #TeamSameTeam" + " 0 * :" + serverMsg + "\r\n");             
           } else {
             System.out.println(serverMsg);
           }
@@ -122,7 +123,12 @@ class Chat {
         boolean isRunning = true; 
         String serverMsgE = inFromServer.readLine();
         while (isRunning) {
-          if (serverMsgE.toLowerCase().startsWith("ping")) {
+          String channelMsg = userInput.readLine();
+          while (channelMsg != null) {
+            outFromClient.writeBytes("PRIVMSG #TeamSameTeam :" + channelMsg + "\r\n");
+            System.out.println(serverMsgE);
+          }
+          if (serverMsgE.startsWith("PING")) {
             System.out.println(serverMsgE);
             System.out.println("PONG " + serverMsgE.substring(5));
             outFromClient.writeBytes("PONG " + serverMsgE.substring(5) + "\r\n");
@@ -130,12 +136,7 @@ class Chat {
             System.out.println(serverMsgE);
           }
         }
-        //outFromClient.writeBytes("JOIN #TeamSameTeam\r\n"); 
-        // String userMsg; //instantize string holder for host name
-        // userMsg = userInput.readLine(); //what the emails about
-        // outFromClient.writeBytes("TeamSameTeam :" nick + userMsg);
       } 
-      //System.out.println(serverMsg);
     } catch (NullPointerException e) {
       System.out.println("ERROR: a connection could not be established!");
     }
