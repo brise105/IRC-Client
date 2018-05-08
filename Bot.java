@@ -138,41 +138,87 @@ public class Bot extends PircBot {
           System.out.println("Error: float parse failed!");
         } catch (NumberFormatException ex) {
           System.out.println("Error: number format!")
-        } catch (Exception e) {
+        } catch (Exception ex) {
           System.out.println("Error!");
         }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("-")) {
-        String[] parts = equation.split("\\-");
-        Float num1 = Float.parseFloat(parts[0].toString());
-        Float num2 = Float.parseFloat(parts[1].toString());
-        String ans = Float.toString(num1 - num2);
+        try {
+          String[] parts = equation.split("\\-");
+          Float num1 = Float.parseFloat(parts[0].toString());
+          Float num2 = Float.parseFloat(parts[1].toString());
+          String ans = Float.toString(num1 - num2);
+        } catch (ParseException ex) {
+          System.out.println("Error float parse failed!");
+        } catch (NumberFormatException ex) {
+          System.out.println("Error: number format!"):
+        } catch (Exception ex) {
+          System.out.println("Error!");
+        }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("/")) {
-        String[] parts = equation.split("\\/");
-        Float num1 = Float.parseFloat(parts[0].toString());
-        Float num2 = Float.parseFloat(parts[1].toString());
-        String ans = Float.toString(num1 / num2);
+        try {
+          String[] parts = equation.split("\\/");
+          Float num1 = Float.parseFloat(parts[0].toString());
+          Float num2 = Float.parseFloat(parts[1].toString());
+          String ans = Float.toString(num1 / num2);
+        } catch (ParseException ex) {
+          System.out.println("Error: float parse failed!"):
+        } catch (NumberFormatException ex) {
+          System.out.println("Error: number format!");
+        } catch (ArithmeticException ex){
+          System.out.println("Error: can not divide by 0!");
+        } catch Exception ex) {
+          System.out.println("Error!");
+        }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("%")) {
-        String[] parts = equation.split("\\%");
-        Float num1 = Float.parseFloat(parts[0].toString());
-        Float num2 = Float.parseFloat(parts[1].toString());
-        String ans = Float.toString(num1 % num2);
+        try {
+          String[] parts = equation.split("\\%");
+          Float num1 = Float.parseFloat(parts[0].toString());
+          Float num2 = Float.parseFloat(parts[1].toString());
+          String ans = Float.toString(num1 % num2);
+        } catch (ParseException ex) {
+          System.out.println("Error: float parse failed!");
+        } catch (NumberFormatException ex) {
+          System.out.println("Error: number format!");
+        } catch (Exception ex) {
+          System.out.println("Error!");
+        }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("*")) {
-        String[] parts = equation.split("\\*");
-        Float num1 = Float.parseFloat(parts[0].toString());
-        Float num2 = Float.parseFloat(parts[1].toString());
-        String ans = Float.toString(num1 * num2);
+        try {
+          String[] parts = equation.split("\\*");
+          Float num1 = Float.parseFloat(parts[0].toString());
+          Float num2 = Float.parseFloat(parts[1].toString());
+          String ans = Float.toString(num1 * num2);
+        } catch (ParseException ex) {
+          System.out.println("Error: float parse failed!");
+        } catch (NumberFormatException ex) {
+          System.out.println("Error: nmber format!");
+        } catch (Exception ex) {
+          System.out.println("Error!");
+        }
         sendMessage(channel, sender + ": " + ans);
       } else {
         String error = "Error: Enter correct parameters";
         sendMessage(channel, sender + ": " + error);
       }
     } else if (metaMsg.substring(0,5).equals("!bin ")) {
-      String num = metaMsg.substring(5,metaMsg.length());
-      int dec = Integer.parseInt(num);
+      try {
+        String num = metaMsg.substring(5,metaMsg.length());
+        int dec = Integer.parseInt(num);
+      } catch (ParseException ex) {
+        System.out.println("Error: integer parse failed!");
+      } catch (IndexOutOfBoundException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (NumberFormatException ex) {
+        System.out.println("Error: number format!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!")
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      }
       String bin = "";
       while (dec > 0) {
         bin = dec % 2 + bin;
@@ -181,7 +227,19 @@ public class Bot extends PircBot {
       String ans  = "Conversion of decimal to binary is: " + bin;
       sendMessage(channel, sender + ": " + ans);
     } else if (metaMsg.substring(0,5).equals("!dec ")) {
-      int num = Integer.parseInt(metaMsg.substring(5,metaMsg.length()));
+      try {
+        int num = Integer.parseInt(metaMsg.substring(5,metaMsg.length()));
+      } catch (ParseException ex) {
+        System.out.println("Error: integer parse failed!");
+      } catch (IndexOutOfBoundException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (NumberFormatException ex) {
+        System.out.println("Error: number format!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      }
       int dec = 0;
       int x = 0;
 
