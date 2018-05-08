@@ -80,6 +80,8 @@ class Chat {
       System.exit(0);
     }
 
+    //userInput.close();
+
     System.out.println("/***********************************************/");
     System.out.println("RECEIVED BY SERVER:");
     System.out.println("Hostname: " + host + "\nPort: " + port
@@ -102,40 +104,68 @@ class Chat {
           && inFromServer != null
           && outFromClient != null) {
 
-        outFromClient.writeBytes("NICK " + nick + "\r\n"); 
-        outFromClient.writeBytes("USER " + user + " 0 * :" + name + "\r\n");
+        outFromClient.writeBytes("\nNICK " + nick + "\r\n"); 
+        outFromClient.writeBytes("\nUSER " + user + " " + host + " 69 :" + name + "\r\n");
 
+        boolean joinF = true;
         String serverMsg;
-        while ((serverMsg = inFromServer.readLine()) != null) {
-          if (serverMsg.startsWith("PING")) {
+        String key = "";
+        while (((serverMsg = inFromServer.readLine()) != null) && (joinF == true)){
+          if (serverMsg.startsWith("PING")) { 
+            joinF = false;     
             System.out.println(serverMsg);
-            System.out.println("PONG " + serverMsg.substring(5));
-            outFromClient.writeBytes("PONG " + serverMsg.substring(5) + "\r\n");
-            outFromClient.writeBytes("JOIN #TeamSameTeam" + " 0 * :" 
-                                     + serverMsg + "\r\n");             
+            String tempy = serverMsg.substring(5);
+            key = tempy;
+            System.out.println("PONG " + key);
+            outFromClient.writeBytes("\nPONG " + key + "\r\n");
+            //outFromClient.writeBytes("JOIN #TeamSameTeam :" 
+            //                         + serverMsg + "\r\n");      
           } else {
             System.out.println(serverMsg);
           }
-          if (serverMsg.contains("433")) {
+          if (serverMsg.contains("433")) {   
             System.out.println("ERROR: username is already in use!");
             System.exit(0);
-          } 
+          }
+          if (joinF == false) {
+            while (((serverMsg = inFromServer.readLine()) != null)) {
+              System.out.println(serverMsg);
+              if (serverMsg.contains("376")) {
+                serverMsg = inFromServer.readLine();
+                outFromClient.writeBytes("\nJOIN #TeamSameTeam :" + key + "\r\n");
+                while (((serverMsg = inFromServer.readLine()) != null)) {
+                  System.out.println(serverMsg);
+                  if (serverMsg.contains("366")) {
+                    break;
+                  }
+                }
+                break;
+              }
+            }
+            break;
+          }
         }
         boolean isRunning = true; 
+        boolean channelF = true;
         String serverMsgE = inFromServer.readLine();
+        String channelMsg = null;
         while (isRunning) {
-          String channelMsg = userInput.readLine();
-          while (channelMsg != null) {
-            outFromClient.writeBytes("PRIVMSG #TeamSameTeam :" + channelMsg + "\r\n");
+          if (!(channelMsg = userInput.readLine()).equals(null)) {        
+            outFromClient.writeBytes("\nPRIVMSG #TeamSameTeam :" + channelMsg + "\r\n");
+            System.out.println(channelMsg);
+          }
+          if (channelF == true) {
+            System.out.println(serverMsgE);
+            channelF = false; 
+          } 
+          if (serverMsgE.startsWith("PRIVMSG")) {
             System.out.println(serverMsgE);
           }
           if (serverMsgE.startsWith("PING")) {
             System.out.println(serverMsgE);
             System.out.println("PONG " + serverMsgE.substring(5));
-            outFromClient.writeBytes("PONG " + serverMsgE.substring(5) + "\r\n");
-          } else {
-            System.out.println(serverMsgE);
-          }
+            outFromClient.writeBytes("\nPONG " + serverMsgE.substring(5) + "\r\n");
+          } 
         }
       } 
     } catch (NullPointerException e) {
