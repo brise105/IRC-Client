@@ -70,7 +70,17 @@ public class Bot extends PircBot {
       int n3;
       int i;
       String sequence = "";
-      int count = Integer.parseInt(metaMsg.substring(5,metaMsg.length()));
+      try {
+        int count = Integer.parseInt(metaMsg.substring(5,metaMsg.length()));
+      } catch (ParseException ex) {
+        System.out.println("Error: integer parse failed!");
+      } catch (IndexOutOfBoundsException ex) {
+        System.out.println("Error: index out of bounds!"); 
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      }
       if (count >= 48) {
         String error = "Error: Enter a number less than 48.";
         sendMessage(channel,sender + ": " + error);
@@ -85,20 +95,52 @@ public class Bot extends PircBot {
       }
       sendMessage(channel, sender + ": " + sequence); 
     } else if (metaMsg.substring(0,5).equals("!rev ")) {
-      String orig = metaMsg.substring(5,metaMsg.length());
+      try {
+        String orig = metaMsg.substring(5,metaMsg.length());
+      } catch (IndexOutOfBoundsException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      }
       String rev = "";
-      int len = orig.length();
+      try {
+        int len = orig.length();
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      }
       for (int i = len - 1; i >= 0; i--) {
         rev = rev + orig.charAt(i);
       }
       sendMessage(channel, sender + ": " + rev);
     } else if (metaMsg.substring(0,5).equals("!cal ")) {
-      String equation = metaMsg.substring(5,metaMsg.length());
+      try {
+        String equation = metaMsg.substring(5,metaMsg.length());
+      } catch (IndexOutOfBoundsException ex) {
+        System.out.println("Error: index out of Bounds!");
+      } catch (NumberFormatException ex) {
+        System.out.println("Error: Number format!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      }
       if (equation.contains("+")) {
-        String[] parts = equation.split("\\+");
-        Float num1 = Float.parseFloat(parts[0].toString());
-        Float num2 = Float.parseFloat(parts[1].toString());
-        String ans = Float.toString(num1 + num2);
+        try {
+          String[] parts = equation.split("\\+");
+          Float num1 = Float.parseFloat(parts[0].toString());
+          Float num2 = Float.parseFloat(parts[1].toString());
+          String ans = Float.toString(num1 + num2);
+        } catch (ParseException ex) {
+          System.out.println("Error: float parse failed!");
+        } catch (NumberFormatException ex) {
+          System.out.println("Error: number format!")
+        } catch (Exception e) {
+          System.out.println("Error!");
+        }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("-")) {
         String[] parts = equation.split("\\-");
@@ -193,11 +235,8 @@ public class Bot extends PircBot {
     } else if (metaMsg.substring(0,8).equals("!ctdown ")) {
       int tim = Integer.parseInt(metaMsg.substring(8,metaMsg.length()));
       do {
-           //Thread.sleep(1000);
-           sendMessage(channel, sender + ": " + (tim / 1));
-           tim = tim - 1;
+        tim = tim - 1;
       } while (tim != 0);
-      //Thread.sleep(1000);
       sendMessage(channel, sender + ": Time's Up!"); 
     } else {
       String errormsg = "Please enter correct command input. Type '!help' for list of commands";
