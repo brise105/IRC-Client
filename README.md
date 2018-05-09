@@ -60,6 +60,7 @@ This project consists of two parts: the main Bot client and the Chat client. The
 * ```!dec``` n: converts binary number n to decimal
 * ```!palin``` s: checks if string s is a palindrome
 * ```!ctdown``` n: countdown starting from n
+  * *Limit 60 seconds!*
 * ```!help``` list of the commands with required input
 * ```!cmdinfo``` list of the commands with descriptions
 
