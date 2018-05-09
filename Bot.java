@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
-import java.text.ParseException;
+import java.lang.StringIndexOutOfBoundsException;
 
 //import org.jibble.pircbot.DccChat;
 //import org.jibble.pircbot.DccFileTransfer;
@@ -86,9 +86,7 @@ public class Bot extends PircBot {
           }
         }
         sendMessage(channel, sender + ": " + sequence);
-      } catch (ParseException ex) {
-        System.out.println("Error: integer parse failed!");
-      } catch (IndexOutOfBoundsException ex) {
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!"); 
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
@@ -104,7 +102,7 @@ public class Bot extends PircBot {
           rev = rev + orig.charAt(i);
         }
         sendMessage(channel, sender + ": " + rev);
-      } catch (IndexOutOfBoundsException ex) {
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
@@ -114,98 +112,63 @@ public class Bot extends PircBot {
     } else if (metaMsg.substring(0,5).equals("!cal ")) {
       try {
         String equation = metaMsg.substring(5,metaMsg.length());
-      } catch (IndexOutOfBoundsException ex) {
-        System.out.println("Error: index out of Bounds!");
-      } catch (NumberFormatException ex) {
-        System.out.println("Error: Number format!");
-      } catch (NullPointerException ex) {
-        System.out.println("Error: null pointer exception!");
-      } catch (Exception ex) {
-        System.out.println("!cal error!");
-      }
-      if (equation.contains("+")) {
-        try {
+        if (equation.contains("+")) {
           String[] parts = equation.split("\\+");
           Float num1 = Float.parseFloat(parts[0].toString());
           Float num2 = Float.parseFloat(parts[1].toString());
           String ans = Float.toString(num1 + num2);
-        } catch (ParseException ex) {
-          System.out.println("Error: float parse failed!");
-        } catch (NumberFormatException ex) {
-          System.out.println("Error: number format!");
-        } catch (Exception ex) {
-          System.out.println("!cal + error!");
-        }
-        sendMessage(channel, sender + ": " + ans);
-      } else if (equation.contains("-")) {
-        try {
+          sendMessage(channel, sender + ": " + ans);
+        } else if (equation.contains("-")) {
           String[] parts = equation.split("\\-");
           Float num1 = Float.parseFloat(parts[0].toString());
           Float num2 = Float.parseFloat(parts[1].toString());
           String ans = Float.toString(num1 - num2);
-        } catch (ParseException ex) {
-          System.out.println("Error float parse failed!");
-        } catch (NumberFormatException ex) {
-          System.out.println("Error: number format!");
-        } catch (Exception ex) {
-          System.out.println("!cal - error!");
-        }
-        sendMessage(channel, sender + ": " + ans);
-      } else if (equation.contains("/")) {
-        try {
+          sendMessage(channel, sender + ": " + ans);
+        } else if (equation.contains("/")) {
           String[] parts = equation.split("\\/");
           Float num1 = Float.parseFloat(parts[0].toString());
           Float num2 = Float.parseFloat(parts[1].toString());
           String ans = Float.toString(num1 / num2);
-        } catch (ParseException ex) {
-          System.out.println("Error: float parse failed!");
-        } catch (NumberFormatException ex) {
-          System.out.println("Error: number format!");
-        } catch (ArithmeticException ex){
-          System.out.println("Error: can not divide by 0!");
-        } catch (Exception ex) {
-          System.out.println("!cal / error!");
-        }
-        sendMessage(channel, sender + ": " + ans);
-      } else if (equation.contains("%")) {
-        try {
+          sendMessage(channel, sender + ": " + ans);
+        } else if (equation.contains("%")) {
           String[] parts = equation.split("\\%");
           Float num1 = Float.parseFloat(parts[0].toString());
           Float num2 = Float.parseFloat(parts[1].toString());
           String ans = Float.toString(num1 % num2);
-        } catch (ParseException ex) {
-          System.out.println("Error: float parse failed!");
-        } catch (NumberFormatException ex) {
-          System.out.println("Error: number format!");
-        } catch (Exception ex) {
-          System.out.println("!cal % error!");
-        }
-        sendMessage(channel, sender + ": " + ans);
-      } else if (equation.contains("*")) {
-        try {
+          sendMessage(channel, sender + ": " + ans);
+        } else if (equation.contains("*")) {
           String[] parts = equation.split("\\*");
           Float num1 = Float.parseFloat(parts[0].toString());
           Float num2 = Float.parseFloat(parts[1].toString());
           String ans = Float.toString(num1 * num2);
-        } catch (ParseException ex) {
-          System.out.println("Error: float parse failed!");
-        } catch (NumberFormatException ex) {
-          System.out.println("Error: nmber format!");
-        } catch (Exception ex) {
-          System.out.println("!cal * error!");
+          sendMessage(channel, sender + ": " + ans);
+        } else {
+          String error = "Error: Enter correct parameters";
+          sendMessage(channel, sender + ": " + error);
         }
-        sendMessage(channel, sender + ": " + ans);
-      } else {
-        String error = "Error: Enter correct parameters";
-        sendMessage(channel, sender + ": " + error);
+      } catch (StringIndexOutOfBoundsException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (NumberFormatException ex) {
+        System.out.println("Error: number format!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (ArithmeticException ex) {
+        System.out.println("Error: can not divide by 0!");
+      } catch (Exception ex) {
+        System.out.println("!cal error!");
       }
     } else if (metaMsg.substring(0,5).equals("!bin ")) {
       try {
         String num = metaMsg.substring(5,metaMsg.length());
         int dec = Integer.parseInt(num);
-      } catch (ParseException ex) {
-        System.out.println("Error: integer parse failed!");
-      } catch (IndexOutOfBoundException ex) {
+        String bin = "";
+        while (dec > 0) {
+          bin = dec % 2 + bin;
+          dec = dec / 2;
+        }
+        String ans = "Converstion of decimal to binary is: " + bin;
+        sendMessage(channel, sender + ": " + ans);
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NumberFormatException ex) {
         System.out.println("Error: number format!");
@@ -214,19 +177,20 @@ public class Bot extends PircBot {
       } catch (Exception ex) {
         System.out.println("!bin error!");
       }
-      String bin = "";
-      while (dec > 0) {
-        bin = dec % 2 + bin;
-        dec = dec / 2;
-      }
-      String ans  = "Conversion of decimal to binary is: " + bin;
-      sendMessage(channel, sender + ": " + ans);
     } else if (metaMsg.substring(0,5).equals("!dec ")) {
       try {
         int num = Integer.parseInt(metaMsg.substring(5,metaMsg.length()));
-      } catch (ParseException ex) {
-        System.out.println("Error: integer parse failed!");
-      } catch (IndexOutOfBoundException ex) {
+        int dec = 0;
+        int x = 0;
+
+        while (num != 0) {
+          dec += ((num % 10) * Math.pow(2,x));
+          num = num / 10;
+          x++;
+        }
+        String ans = "Conversion of binary to decimal is: " + dec;
+        sendMessage(channel, sender + ": " + ans);
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NumberFormatException ex) {
         System.out.println("Error: number format!");
@@ -235,32 +199,20 @@ public class Bot extends PircBot {
       } catch (Exception ex) {
         System.out.println("!dec error!");
       }
-      int dec = 0;
-      int x = 0;
-
-      while (num != 0) {
-        dec += ((num % 10) * Math.pow(2,x));
-        num = num / 10;
-        x++;
-      }
-      String ans = "Conversion of binary to decimal is: " + dec;
-      sendMessage(channel, sender + ": " + ans);
     } else if (metaMsg.substring(0,5).equals("!cel ")) {
       try {
         float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
         temp = ((temp - 32) * 5) / 9;
         float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      } catch (ParseException ex) {
-        System.out.println("Error: float parse failed!");
-      } catch (IndexOutOfBoundException ex) {
+        String cel = tempOg + " degrees Fahrenheit equals " + temp + " degrees Celsius";
+        sendMessage(channel, sender + ": " + cel);
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!"); 
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
         System.out.println("!cel error!");
       }
-      String cel = tempOg + " degrees Fahrenheit equals " + temp + " degrees Celsius";
-      sendMessage(channel, sender + ": " + cel);
     } else if (metaMsg.substring(0,5).equals("!help")) {
       sendMessage(channel, sender + ": !time");
       sendMessage(channel, sender + ": !cat");
@@ -281,26 +233,22 @@ public class Bot extends PircBot {
         float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
         temp = 9 * (temp / 5) + 32;
         float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      } catch (ParseException ex) {
-        System.out.println("Error: float parse failed!");
-      } catch (IndexOutOfBoundException ex) {
+        String fahr = tempOg + " degrees Celsius equals " + temp + " degrees Fahrenheit";
+        sendMessage(channel, sender + ": " + fahr);
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
         System.out.println("!fahr error!");
-      } 
-      String fahr = tempOg + " degrees Celsius equals " + temp + " degrees Fahrenheit";
-      sendMessage(channel, sender + ": " + fahr); 
+      }
     } else if (metaMsg.substring(0,7).equals("!facto ")) {
       int n = 1;
       int m = 1;
       int facto = 1;
       try {
         n = Integer.parseInt(metaMsg.substring(7,metaMsg.length())); 
-      } catch (ParseException ex) {
-        System.out.println("Error: integer parse failed!");
-      } catch (IndexOutOfBoundsException ex) {
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
@@ -316,44 +264,43 @@ public class Bot extends PircBot {
         sendMessage(channel, sender + ": the factorial of " + n + " is " + facto);
       }             
     } else if (metaMsg.substring(0,7).equals("!palin ")) {
-      String rev = "";
-      String senOut;
       try {
         String orig = metaMsg.substring(7,metaMsg.length());
         int len = orig.length();
-      } catch (IndexOutOfBoundsException ex) {
+        String rev = "";
+        String senOut;
+
+        for (int i = len - 1; i >= 0; i--) {
+          rev = rev + orig.charAt(i);
+        }
+        if (orig.equals(rev)) {
+          senOut = orig + " is a palindrome.";
+          sendMessage(channel, sender + ": " + senOut);
+        } else {
+          senOut = orig + " is not a palindrome.";
+          sendMessage(channel, sender + ": " + senOut); 
+        }
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
         System.out.println("!palin error!");
-      }
-      for (int i = len - 1; i >= 0; i--) {
-        rev = rev + orig.charAt(i);
-      }
-      if (orig.equals(rev)) {
-        senOut = orig + " is a palindrome.";
-        sendMessage(channel, sender + ": " + senOut);
-      } else {
-        senOut = orig + " is not a palindrome.";
-        sendMessage(channel, sender + ": " + senOut);
-      }
+      } 
     } else if (metaMsg.substring(0,8).equals("!ctdown ")) {
       try {
         int tim = Integer.parseInt(metaMsg.substring(8,metaMsg.length()));
-      } catch (IndexOutOfBoundsException ex) {
+        do {
+          tim = tim - 1;
+        } while (tim != 0);
+        sendMessage(channel, sender + ": Time's Up!");
+      } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
-      } catch (ParseException ex) {
-        System.out.println("Error: integer parse failed!");
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
         System.out.println("!ctdown error!");
-      }
-      do {
-        tim = tim - 1;
-      } while (tim != 0);
-      sendMessage(channel, sender + ": Time's Up!"); 
+      } 
     } else if (metaMsg.substring(0,9).equals("!helpinfo")) {
       sendMessage(channel, sender + ": !time- tells time for user"); 
       sendMessage(channel, sender + ": !cat- returns a random image of a cat");
