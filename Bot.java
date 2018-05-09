@@ -290,11 +290,15 @@ public class Bot extends PircBot {
     } else if (metaMsg.substring(0,8).equals("!ctdown ")) {
       try {
         int tim = Integer.parseInt(metaMsg.substring(8,metaMsg.length()));
-        do {
-          tim = tim / 1;
-          tim = tim - 1;
-        } while (tim != 0);
-        sendMessage(channel, sender + ": Time's Up!");
+        if (tim <= 60) {
+          do {
+            sendMessage(channel, sender + ": " + (tim / 1));
+            tim = tim - 1;
+          } while (tim != 0);
+          sendMessage(channel, sender + ": Time's Up!");
+        } else {
+          sendMessage(channel, sender + ": Error: Countdown Limit 60 seconds");
+        } 
       } catch (StringIndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NullPointerException ex) {
@@ -315,9 +319,9 @@ public class Bot extends PircBot {
       sendMessage(channel, sender + ": !bin- n: converts decimal number n to binary");
       sendMessage(channel, sender + ": !dec- n: converts binary number n to decimal");
       sendMessage(channel, sender + ": !palin- s: checks if string s is a palindrome");
-      sendMessage(channel, sender + ": !ctdown- n: countdown starting from n");
+      sendMessage(channel, sender + ": !ctdown- n: countdown starting from n (LIMIT: 60sec)");
       sendMessage(channel, sender + ": !help- list of the commands with required input");
-      sendMessage(channel, sender + ": !helpinfo- list of the commands with descriptions");   
+      sendMessage(channel, sender + ": !cmdinfo- list of the commands with descriptions");   
     } else {
       String errormsg = "Please enter correct command input. Type '!help' for list of commands";
       sendMessage(channel, sender + ": " + errormsg);
