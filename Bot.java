@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+import java.io.*;
 
 //import org.jibble.pircbot.DccChat;
 //import org.jibble.pircbot.DccFileTransfer;
@@ -321,10 +322,10 @@ public class Bot extends PircBot {
         sendMessage(channel, sender + ": the factorial of " + n + " is " + facto);
       }             
     } else if (metaMsg.substring(0,7).equals("!palin ")) {
+      String rev = "";
+      String senOut;
       try {
         String orig = metaMsg.substring(7,metaMsg.length());
-        String rev = "";
-        String senOut;
         int len = orig.length();
       } catch (IndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
