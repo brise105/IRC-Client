@@ -61,7 +61,7 @@ This project consists of two parts: the main Bot client and the Chat client. The
 * ```!palin``` s: checks if string s is a palindrome
 * ```!ctdown``` n: countdown starting from n
 * ```!help``` list of the commands with required input
-* ```!helpinfo``` list of the commands with descriptions
+* ```!cmdinfo``` list of the commands with descriptions
 
 **Checkstyles:**
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
