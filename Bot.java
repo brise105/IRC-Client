@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
-import java.io.*;
+import java.text.ParseException;
 
 //import org.jibble.pircbot.DccChat;
 //import org.jibble.pircbot.DccFileTransfer;
@@ -73,6 +73,19 @@ public class Bot extends PircBot {
       String sequence = "";
       try {
         int count = Integer.parseInt(metaMsg.substring(5,metaMsg.length()));
+        if (count >= 48) {
+          String error = "Error: enter a number less than 48.";
+          sendMessage(channel,sender + ": " + error);
+        } else {
+	  sendMessage(channel, sender + ": the first " +  count + " Fibonacci numbers are: ");
+          for (i = 2; i < count; i++) {
+            n3 = n1 + n2;
+            sequence = sequence + Integer.toString(n3) + " ";
+            n1 = n2;
+            n2 = n3;
+          }
+        }
+        sendMessage(channel, sender + ": " + sequence);
       } catch (ParseException ex) {
         System.out.println("Error: integer parse failed!");
       } catch (IndexOutOfBoundsException ex) {
@@ -82,22 +95,15 @@ public class Bot extends PircBot {
       } catch (Exception ex) {
         System.out.println("!fib error!");
       }
-      if (count >= 48) {
-        String error = "Error: Enter a number less than 48.";
-        sendMessage(channel,sender + ": " + error);
-      } else {
-        sendMessage(channel, sender + ": the first " +  count + " Fibonacci numbers are: ");
-        for (i = 2; i < count; i++) {
-          n3 = n1 + n2;
-          sequence = sequence + Integer.toString(n3) + " ";
-          n1 = n2;
-          n2 = n3;
-        }
-      }
-      sendMessage(channel, sender + ": " + sequence); 
     } else if (metaMsg.substring(0,5).equals("!rev ")) {
       try {
         String orig = metaMsg.substring(5,metaMsg.length());
+        String rev = "";
+        int len = orig.length();
+        for (int i = len - 1; i >= 0; i--) {
+          rev = rev + orig.charAt(i);
+        }
+        sendMessage(channel, sender + ": " + rev);
       } catch (IndexOutOfBoundsException ex) {
         System.out.println("Error: index out of bounds!");
       } catch (NullPointerException ex) {
@@ -105,18 +111,6 @@ public class Bot extends PircBot {
       } catch (Exception ex) {
         System.out.println("!rev error!");
       }
-      String rev = "";
-      try {
-        int len = orig.length();
-      } catch (NullPointerException ex) {
-        System.out.println("Error: null pointer exception!");
-      } catch (Exception ex) {
-        System.out.println("!rev length error!");
-      }
-      for (int i = len - 1; i >= 0; i--) {
-        rev = rev + orig.charAt(i);
-      }
-      sendMessage(channel, sender + ": " + rev);
     } else if (metaMsg.substring(0,5).equals("!cal ")) {
       try {
         String equation = metaMsg.substring(5,metaMsg.length());
