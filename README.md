@@ -48,15 +48,20 @@ This project consists of two parts: the main Bot client and the Chat client. The
 **Commands:**
 * ```!time```: tells current time for user
 * ```!cat```: returns a random image of a cat
+* ```!rev```: s: reverses string s
 * ```!fib``` n: returns fibonnacci sequence up to n
 * ```!facto``` n: factorial of n
 * ```!cel``` n: converts n degrees fahrinheight to celcius
 * ```!fahr``` n: converts n degrees celcius to fahrinheight
-* ```!rev``` s: reverses string s
 * ```!cal```: performs basic arthmetic upon two values: n & m
   * *!cal+space+n+operator+m*
   * *Single operations only!*
 * ```!bin``` n: converts decimal number n to binary
+* ```!dec``` n: converts binary number n to decimal
+* ```!palin``` s: checks if string s is a palindrome
+* ```!ctdown``` n: countdown starting from n
+* ```!help``` list of the commands with required input
+* ```!helpinfo``` list of the commands with description
 
 **Checkstyles:**
 ```java -jar checkstyle-8.8-all.jar -c google_checks.xml *.java```
