@@ -1,21 +1,20 @@
 /**
 *  IRC Client Program
-*  1)Get info from user
-*  2)Receives 5 single line inputs
-*  3)Attempt connection to IRC Server
-*  4)Establish socket connection
-*  5)Send server data
-*  5)Wait for PING msg from server to the client
-*  6)PONG msg back to the server from the client
-*  7)Create/join chatroom
-*  8)Self promotion
-*  9)Listen for commands
-*  10)/quit on command or kick
+*  1)Get info from user (hostname, port, name, user)
+*  2)USER/NICK info
+*  3)Opens sockets/data streams
+*  5)Send user data to a server on the IRC network
+*  5)Wait for PING msg + key from server to the client
+*  6)PONG msg back to the server from the client w/ the key
+*  7)Create/join chatroom w/ the key
+*  8)Listen for commands/send messages
+*  9)Ping/Pong to maintain connection
+*  10)QUIT on command
 *
 *  @author: Brandon Briseno & Alfonso Castanos
 *  Email:  brise105@mail.chapman.edu & casta145@mail.chapman.edu
 *  Date:  5/6/2018
-*  @version: 3.6
+*  @version: 5.1
 */
 import java.io.BufferedReader;
 
@@ -80,8 +79,6 @@ class Chat {
       System.exit(0);
     }
 
-    //userInput.close();
-
     System.out.println("/***********************************************/");
     System.out.println("RECEIVED BY SERVER:");
     System.out.println("Hostname: " + host + "\nPort: " + port
@@ -104,22 +101,20 @@ class Chat {
           && inFromServer != null
           && outFromClient != null) {
 
-        outFromClient.writeBytes("\nNICK " + nick + "\r\n"); 
-        outFromClient.writeBytes("\nUSER " + user + " " + host + " 69 :" + name + "\r\n");
+        outFromClient.writeBytes("\nNICK " + nick + "\r"); 
+        outFromClient.writeBytes("USER " + user + " " + host + " 69 :" + name + "\r\n");
 
         boolean joinF = true;
         String serverMsg;
         String key = "";
-        while (((serverMsg = inFromServer.readLine()) != null) && (joinF == true)){
+        while (((serverMsg = inFromServer.readLine()) != null) && (joinF == true)) {
           if (serverMsg.startsWith("PING")) { 
             joinF = false;     
             System.out.println(serverMsg);
             String tempy = serverMsg.substring(5);
             key = tempy;
             System.out.println("PONG " + key);
-            outFromClient.writeBytes("\nPONG " + key + "\r\n");
-            //outFromClient.writeBytes("JOIN #TeamSameTeam :" 
-            //                         + serverMsg + "\r\n");      
+            outFromClient.writeBytes("\nPONG " + key + "\r\n");   
           } else {
             System.out.println(serverMsg);
           }
@@ -132,7 +127,7 @@ class Chat {
               System.out.println(serverMsg);
               if (serverMsg.contains("376")) {
                 serverMsg = inFromServer.readLine();
-                outFromClient.writeBytes("\nJOIN #TeamSameTeam :" + key + "\r\n");
+                outFromClient.writeBytes("\nJOIN #TeamSameTeam " + key + "\r\n");
                 while (((serverMsg = inFromServer.readLine()) != null)) {
                   System.out.println(serverMsg);
                   if (serverMsg.contains("366")) {
@@ -145,27 +140,22 @@ class Chat {
             break;
           }
         }
+
         boolean isRunning = true; 
         boolean channelF = true;
-        String serverMsgE = inFromServer.readLine();
         String channelMsg = null;
-        while (isRunning) {
-          if (!(channelMsg = userInput.readLine()).equals(null)) {        
+        while (isRunning) { 
+          if ((channelMsg = userInput.readLine()) != null) {      
             outFromClient.writeBytes("\nPRIVMSG #TeamSameTeam :" + channelMsg + "\r\n");
-            System.out.println(channelMsg);
+            serverMsg = inFromServer.readLine();
+            System.out.println(serverMsg);
+          } else if ((serverMsg.contains("PRIVMSG"))) {
+            serverMsg = inFromServer.readLine();
+            System.out.println(serverMsg);
+          } else if (serverMsg.contains("PING")) {
+            System.out.println("PONG " + serverMsg.substring(5));
+            outFromClient.writeBytes("\nPONG " + serverMsg.substring(5) + "\r\n");
           }
-          if (channelF == true) {
-            System.out.println(serverMsgE);
-            channelF = false; 
-          } 
-          if (serverMsgE.startsWith("PRIVMSG")) {
-            System.out.println(serverMsgE);
-          }
-          if (serverMsgE.startsWith("PING")) {
-            System.out.println(serverMsgE);
-            System.out.println("PONG " + serverMsgE.substring(5));
-            outFromClient.writeBytes("\nPONG " + serverMsgE.substring(5) + "\r\n");
-          } 
         }
       } 
     } catch (NullPointerException e) {
