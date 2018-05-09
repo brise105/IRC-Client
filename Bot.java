@@ -10,8 +10,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Random;
 import java.lang.StringIndexOutOfBoundsException;
+import java.util.Random;
 
 //import org.jibble.pircbot.DccChat;
 //import org.jibble.pircbot.DccFileTransfer;
@@ -77,7 +77,7 @@ public class Bot extends PircBot {
           String error = "Error: enter a number less than 48.";
           sendMessage(channel,sender + ": " + error);
         } else {
-	  sendMessage(channel, sender + ": the first " +  count + " Fibonacci numbers are: ");
+          sendMessage(channel, sender + ": the first " +  count + " Fibonacci numbers are: ");
           for (i = 2; i < count; i++) {
             n3 = n1 + n2;
             sequence = sequence + Integer.toString(n3) + " ";
@@ -227,7 +227,7 @@ public class Bot extends PircBot {
       sendMessage(channel, sender + ": !palin + [space] + s");
       sendMessage(channel, sender + ": !ctdown + [space] + n");
       sendMessage(channel, sender + ": !help");
-      sendMessage(channel, sender + ": !helpinfo");
+      sendMessage(channel, sender + ": !cmdinfo");
     } else if (metaMsg.substring(0,6).equals("!fahr ")) {
       try {
         float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
@@ -291,6 +291,7 @@ public class Bot extends PircBot {
       try {
         int tim = Integer.parseInt(metaMsg.substring(8,metaMsg.length()));
         do {
+          tim = tim / 1;
           tim = tim - 1;
         } while (tim != 0);
         sendMessage(channel, sender + ": Time's Up!");
@@ -301,7 +302,7 @@ public class Bot extends PircBot {
       } catch (Exception ex) {
         System.out.println("!ctdown error!");
       } 
-    } else if (metaMsg.substring(0,9).equals("!helpinfo")) {
+    } else if (metaMsg.substring(0,8).equals("!cmdinfo")) {
       sendMessage(channel, sender + ": !time- tells time for user"); 
       sendMessage(channel, sender + ": !cat- returns a random image of a cat");
       sendMessage(channel, sender + ": !rev- s: reverses string s");
