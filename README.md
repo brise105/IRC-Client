@@ -7,16 +7,16 @@
 
 ## Program Description
 This is an Internet Relay Chat client program which should follow the following protocol:
-*  1)Get info from user (hostname, port, name, user)
-*  2)USER/NICK info
-*  3)Open sockets/data streams
-*  5)Send user data to a server on the IRC network
-*  5)Wait for PING msg + key from server to the client
-*  6)PONG msg back to the server from the client w/ the key
-*  7)Create/join chatroom w/ the key
-*  8)Listen for commands/send messages
-*  9)Ping/Pong to maintain connection
-*  10)QUIT on command
+*  1) Get info from user (hostname, port, name, user)
+*  2) USER/NICK info
+*  3) Open sockets/data streams
+*  5) Send user data to a server on the IRC network
+*  5) Wait for PING msg + key from server to the client
+*  6) PONG msg back to the server from the client w/ the key
+*  7) Create/join chatroom w/ the key
+*  8) Listen for commands/send messages
+*  9) Ping/Pong to maintain connection
+*  10) QUIT on command
 
 This project consists of two parts: the main Bot client and the Chat client. The webclient (mibbit) listed below is for debugging and prototyping; functionally speaking, it is an idealized iteration of the ```Chat.java``` client. Furthermore, the Chat client is intended to serve as a built-in "controller" for interacting w/ the IRC Bot. It was built from scratch by analyzing IRC packets over wireshark with the intention to get a closer look at how the protocol works without the help of an API. 
 
@@ -29,7 +29,7 @@ This project consists of two parts: the main Bot client and the Chat client. The
   * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
     
 3b. Test-- Method 2 (requires JDK enviornment):
-    * Compile: ```javac Chat.java```
+  * Compile: ```javac Chat.java```
   * Run: ```java Chat```
     * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
 
