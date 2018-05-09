@@ -18,7 +18,7 @@ This is an Internet Relay Chat client program which should follow the following 
 *  9)Ping/Pong to maintain connection
 *  10)QUIT on command
 
-Currently, we are working on two parts: the bot client and the chat client. The webclient listed below is currently only for debugging and prototyping, functionally it is an idealized iteration of the ```Chat.java``` client. Furthermore, the Chat.java client is intended to serve as a built-in "controller" for interacting w/ the IRC Bot.
+This project consists of two parts: the main Bot client and the Chat client. The webclient (mibbit) listed below is for debugging and prototyping; functionally speaking, it is an idealized iteration of the ```Chat.java``` client. Furthermore, the Chat client is intended to serve as a built-in "controller" for interacting w/ the IRC Bot. It was built from scratch by analyzing IRC packets over wireshark with the intention to get a closer look at how the protocol works without the help of an API. 
 
 ## Instructions:
 **Linux:**
