@@ -22,24 +22,28 @@ This project consists of two parts: the main Bot client and the Chat client. The
 
 ## Instructions:
 **Linux:**
-1) Compile: ```javac -classpath pircbot.jar:. *.java```
-2) Run: ```java -classpath pircbot.jar:. BotMain```
-3a) Test-- Method 1: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
-    * Disclaimer: We are working on a client to interact w/ the Bot, but main focus of this project was on the Bot
+1. Compile: ```javac -classpath pircbot.jar:. *.java```
+2. Run: ```java -classpath pircbot.jar:. BotMain```
+
+3a. Test-- Method 1: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
+  * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
+    
+3b. Test-- Method 2 (requires JDK enviornment):
+    * Compile: ```javac Chat.java```
+  * Run: ```java Chat```
     * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
-3b) Test-- Method 2 (requires JDK enviornment):
-    * ```javac Chat.java```
-    * ```java Chat```
 
 **Windows:**
-1) Compile: ```javac -classpath pircbot.jar;. *.java```
-2) Run: ```java -classpath pircbot.jar;. BotMain```
-3a) Test-- Method 1: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
-    * Disclaimer: We are working on a client to interact w/ the Bot, but main focus of this project was on the Bot
+1. Compile: ```javac -classpath pircbot.jar;. *.java```
+2. Run: ```java -classpath pircbot.jar;. BotMain```
+
+3a. Test-- Method 1: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
+  * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
+  
+3b. Test-- Method 2 (requires JDK enviornment):
+  * Compile: ```javac Chat.java```
+  * Run: ```java Chat```
     * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
-3b) Test-- Method 2 (requires JDK enviornment):
-    * ```javac Chat.java```
-    * ```java Chat```
 
 **Commands:**
 * ```!time```: tells current time for user
