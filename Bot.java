@@ -251,22 +251,52 @@ public class Bot extends PircBot {
       String ans = "Conversion of binary to decimal is: " + dec;
       sendMessage(channel, sender + ": " + ans);
     } else if (metaMsg.substring(0,5).equals("!cel ")) {
-      float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      temp = ((temp - 32) * 5) / 9;
-      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      try {
+        float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+        temp = ((temp - 32) * 5) / 9;
+        float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      } catch (ParseException ex) {
+        System.out.println("Error: float parse failed!");
+      } catch (IndexOutOfBoundException ex) {
+        System.out.println("Error: index out of bounds!"); 
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      }
       String cel = tempOg + " degrees Fahrenheit equals " + temp + " degrees Celsius";
       sendMessage(channel, sender + ": " + cel);
     } else if (metaMsg.substring(0,6).equals("!fahr ")) {
-      float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
-      temp = 9 * (temp / 5) + 32;
-      float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      try {
+        float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+        temp = 9 * (temp / 5) + 32;
+        float tempOg = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
+      } catch (ParseException ex) {
+        System.out.println("Error: float parse failed!");
+      } catch (IndexOutOfBoundException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!");
+      } 
       String fahr = tempOg + " degrees Celsius equals " + temp + " degrees Fahrenheit";
       sendMessage(channel, sender + ": " + fahr); 
     } else if (metaMsg.substring(0,7).equals("!facto ")) {
       int n = 1;
       int m = 1;
       int facto = 1;
-      n = Integer.parseInt(metaMsg.substring(7,metaMsg.length())); 
+      try {
+        n = Integer.parseInt(metaMsg.substring(7,metaMsg.length())); 
+      } catch (ParseException ex) {
+        System.out.println("Error: integer parse failed!");
+      } catch (IndexOutOfBoundsException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("Error!);
+      }
       if (n < 0) {
         sendMessage(channel, sender + ": the number should not be negative!");
       } else {
