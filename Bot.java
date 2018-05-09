@@ -79,7 +79,7 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!fib error!");
       }
       if (count >= 48) {
         String error = "Error: Enter a number less than 48.";
@@ -102,7 +102,7 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!rev error!");
       }
       String rev = "";
       try {
@@ -110,7 +110,7 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!rev length error!");
       }
       for (int i = len - 1; i >= 0; i--) {
         rev = rev + orig.charAt(i);
@@ -126,7 +126,7 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!cal error!");
       }
       if (equation.contains("+")) {
         try {
@@ -137,9 +137,9 @@ public class Bot extends PircBot {
         } catch (ParseException ex) {
           System.out.println("Error: float parse failed!");
         } catch (NumberFormatException ex) {
-          System.out.println("Error: number format!")
+          System.out.println("Error: number format!");
         } catch (Exception ex) {
-          System.out.println("Error!");
+          System.out.println("!cal + error!");
         }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("-")) {
@@ -151,9 +151,9 @@ public class Bot extends PircBot {
         } catch (ParseException ex) {
           System.out.println("Error float parse failed!");
         } catch (NumberFormatException ex) {
-          System.out.println("Error: number format!"):
+          System.out.println("Error: number format!");
         } catch (Exception ex) {
-          System.out.println("Error!");
+          System.out.println("!cal - error!");
         }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("/")) {
@@ -163,13 +163,13 @@ public class Bot extends PircBot {
           Float num2 = Float.parseFloat(parts[1].toString());
           String ans = Float.toString(num1 / num2);
         } catch (ParseException ex) {
-          System.out.println("Error: float parse failed!"):
+          System.out.println("Error: float parse failed!");
         } catch (NumberFormatException ex) {
           System.out.println("Error: number format!");
         } catch (ArithmeticException ex){
           System.out.println("Error: can not divide by 0!");
-        } catch Exception ex) {
-          System.out.println("Error!");
+        } catch (Exception ex) {
+          System.out.println("!cal / error!");
         }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("%")) {
@@ -183,7 +183,7 @@ public class Bot extends PircBot {
         } catch (NumberFormatException ex) {
           System.out.println("Error: number format!");
         } catch (Exception ex) {
-          System.out.println("Error!");
+          System.out.println("!cal % error!");
         }
         sendMessage(channel, sender + ": " + ans);
       } else if (equation.contains("*")) {
@@ -197,7 +197,7 @@ public class Bot extends PircBot {
         } catch (NumberFormatException ex) {
           System.out.println("Error: nmber format!");
         } catch (Exception ex) {
-          System.out.println("Error!");
+          System.out.println("!cal * error!");
         }
         sendMessage(channel, sender + ": " + ans);
       } else {
@@ -215,9 +215,9 @@ public class Bot extends PircBot {
       } catch (NumberFormatException ex) {
         System.out.println("Error: number format!");
       } catch (NullPointerException ex) {
-        System.out.println("Error: null pointer exception!")
+        System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!bin error!");
       }
       String bin = "";
       while (dec > 0) {
@@ -238,7 +238,7 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!dec error!");
       }
       int dec = 0;
       int x = 0;
@@ -262,10 +262,25 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!cel error!");
       }
       String cel = tempOg + " degrees Fahrenheit equals " + temp + " degrees Celsius";
       sendMessage(channel, sender + ": " + cel);
+    } else if (metaMsg.substring(0,5).equals("!help")) {
+      sendMessage(channel, sender + ": !time");
+      sendMessage(channel, sender + ": !cat");
+      sendMessage(channel, sender + ": !rev + [space] + s");
+      sendMessage(channel, sender + ": !fib + [space] + n");
+      sendMessage(channel, sender + ": !facto + [space] + n");
+      sendMessage(channel, sender + ": !cel + [space] + n");
+      sendMessage(channel, sender + ": !fahr + [space] + n");
+      sendMessage(channel, sender + ": !cal + [space] + n + [operator] + m");
+      sendMessage(channel, sender + ": !bin + [space] + n");
+      sendMessage(channel, sender + ": !dec + [space] + n");
+      sendMessage(channel, sender + ": !palin + [space] + s");
+      sendMessage(channel, sender + ": !ctdown + [space] + n");
+      sendMessage(channel, sender + ": !help");
+      sendMessage(channel, sender + ": !helpinfo");
     } else if (metaMsg.substring(0,6).equals("!fahr ")) {
       try {
         float temp = Float.parseFloat(metaMsg.substring(6,metaMsg.length()));
@@ -278,7 +293,7 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!");
+        System.out.println("!fahr error!");
       } 
       String fahr = tempOg + " degrees Celsius equals " + temp + " degrees Fahrenheit";
       sendMessage(channel, sender + ": " + fahr); 
@@ -295,7 +310,7 @@ public class Bot extends PircBot {
       } catch (NullPointerException ex) {
         System.out.println("Error: null pointer exception!");
       } catch (Exception ex) {
-        System.out.println("Error!);
+        System.out.println("!facto error!");
       }
       if (n < 0) {
         sendMessage(channel, sender + ": the number should not be negative!");
@@ -306,10 +321,18 @@ public class Bot extends PircBot {
         sendMessage(channel, sender + ": the factorial of " + n + " is " + facto);
       }             
     } else if (metaMsg.substring(0,7).equals("!palin ")) {
-      String orig = metaMsg.substring(7,metaMsg.length());
-      String rev = "";
-      String senOut;
-      int len = orig.length();
+      try {
+        String orig = metaMsg.substring(7,metaMsg.length());
+        String rev = "";
+        String senOut;
+        int len = orig.length();
+      } catch (IndexOutOfBoundsException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("!palin error!");
+      }
       for (int i = len - 1; i >= 0; i--) {
         rev = rev + orig.charAt(i);
       }
@@ -321,14 +344,40 @@ public class Bot extends PircBot {
         sendMessage(channel, sender + ": " + senOut);
       }
     } else if (metaMsg.substring(0,8).equals("!ctdown ")) {
-      int tim = Integer.parseInt(metaMsg.substring(8,metaMsg.length()));
+      try {
+        int tim = Integer.parseInt(metaMsg.substring(8,metaMsg.length()));
+      } catch (IndexOutOfBoundsException ex) {
+        System.out.println("Error: index out of bounds!");
+      } catch (ParseException ex) {
+        System.out.println("Error: integer parse failed!");
+      } catch (NullPointerException ex) {
+        System.out.println("Error: null pointer exception!");
+      } catch (Exception ex) {
+        System.out.println("!ctdown error!");
+      }
       do {
         tim = tim - 1;
       } while (tim != 0);
       sendMessage(channel, sender + ": Time's Up!"); 
+    } else if (metaMsg.substring(0,9).equals("!helpinfo")) {
+      sendMessage(channel, sender + ": !time- tells time for user"); 
+      sendMessage(channel, sender + ": !cat- returns a random image of a cat");
+      sendMessage(channel, sender + ": !rev- s: reverses string s");
+      sendMessage(channel, sender + ": !fib- n: returns fibonnacci sequence up to n");
+      sendMessage(channel, sender + ": !facto- n: factorial of n");
+      sendMessage(channel, sender + ": !cel- n: converts n degrees fahrenheit to celsius");
+      sendMessage(channel, sender + ": !fahr- n: converts n degrees celsius to fahrenheit");
+      sendMessage(channel, sender + ": !cal- performs basic arthmetic upon two values: n & m");
+      sendMessage(channel, sender + ": (Single Operations Only!)");
+      sendMessage(channel, sender + ": !bin- n: converts decimal number n to binary");
+      sendMessage(channel, sender + ": !dec- n: converts binary number n to decimal");
+      sendMessage(channel, sender + ": !palin- s: checks if string s is a palindrome");
+      sendMessage(channel, sender + ": !ctdown- n: countdown starting from n");
+      sendMessage(channel, sender + ": !help- list of the commands with required input");
+      sendMessage(channel, sender + ": !helpinfo- list of the commands with descriptions");   
     } else {
       String errormsg = "Please enter correct command input. Type '!help' for list of commands";
       sendMessage(channel, sender + ": " + errormsg);
-    }
+    } 
   }
 }
