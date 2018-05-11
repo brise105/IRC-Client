@@ -71,8 +71,7 @@ This project consists of two parts: the main Bot client and the Chat client. The
 
 - [x] Brainstorm bot operations
 - [x] Implement 3 bot operations
-- [x] Implement 9 bot operations
-- [ ] Implement 20 bot operations
+- [x] Implement 10 bot operations
 - [x] Exception handling/backend feedback for bad inputs
 - [x] Establish identity
 - [x] Establish & maintain connection
