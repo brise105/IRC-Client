@@ -1,5 +1,6 @@
 * Name: Alfonso Castanos
 * SID: 2283681
+* Email: casta145@mail.chapman.edu
 * Class: CPSC 353-02 (Dr.Fahy)
 
 # Contributions 
