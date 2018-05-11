@@ -329,16 +329,16 @@ public class Bot extends PircBot {
           sendMessage(channel, sender + ": " + errormsg);
         }
       } else {
-
+        System.out.print();
       }
     } catch (StringIndexOutOfBoundsException ex) {
-        System.out.println("Error: index out of bounds!");
+      System.out.println("Error: index out of bounds!");
     } catch (NullPointerException ex) {
-        System.out.println("Error: null pointer exception!");
+      System.out.println("Error: null pointer exception!");
     } catch (NumberFormatException ex) {
-        System.out.println("Error: number format!");
+      System.out.println("Error: number format!");
     } catch (Exception ex) {
-        System.out.println("Error!");
+      System.out.println("Error!");
     } 
   }
 }
