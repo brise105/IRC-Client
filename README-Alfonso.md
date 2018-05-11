@@ -1,7 +1,9 @@
 # Alfonso's README.md
 
 **Name:** Alfonso Castanos
+
 **SID:** 2283681
+
 **Class:** CPSC 353-02 (Dr.Fahy)
 
 ## Contributions:
