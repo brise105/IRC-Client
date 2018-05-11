@@ -1,10 +1,10 @@
-#Brandon's README
+# Brandon's README.md
 
 **Name:** Brandon Briseno 
 **SID:** 1932124 
 **Class:** CPSC 353-02 (Dr.Fahy)
 
-##Contributions:
+## Contributions:
 * provided project ideas
 * suggested commands
 * found API and did most of the protocol research
