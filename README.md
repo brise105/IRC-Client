@@ -16,7 +16,6 @@ This is an Internet Relay Chat client program which should follow the following 
 *  7)Create/join chatroom w/ the key
 *  8)Listen for commands/send messages
 *  9)Ping/Pong to maintain connection
-*  10)QUIT on command
 
 This project consists of two parts: the main Bot client and the Chat client. 
 
