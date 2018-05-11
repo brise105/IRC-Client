@@ -18,32 +18,40 @@ This is an Internet Relay Chat client program which should follow the following 
 *  9)Ping/Pong to maintain connection
 *  10)QUIT on command
 
-This project consists of two parts: the main Bot client and the Chat client. The webclient (mibbit) listed below is for debugging and prototyping; functionally speaking, it is an idealized iteration of the ```Chat.java``` client. Furthermore, the Chat client is intended to serve as a built-in "controller" for interacting w/ the IRC Bot. It was built from scratch by analyzing IRC packets over wireshark with the intention to get a closer look at how the protocol works without the help of an API. 
+This project consists of two parts: the main Bot client and the Chat client. 
+
+DISCLAIMER: the ```Chat.java``` client is simply an extra addon to this project, it is by no means a finished product. Furthermore, the Chat client is intended to serve as a built-in "controller" for interacting w/ the IRC Bot. It was built from scratch by analyzing IRC packets over wireshark with the intention to get a closer look at how the protocol works without the help of an API. However, the main focus of this project was placed upon the actual IRC Bot. 
+
+For an idealized chat client, feel free to test out the free web IRC client called [Mibbit](https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net)!
 
 ## Instructions:
 **Linux:**
-1. Compile: ```javac -classpath pircbot.jar:. *.java```
-2. Run: ```java -classpath pircbot.jar:. BotMain```
 
-3a. Test-- Method 1: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
-  * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
+* Method 1: (requires JDK enviornment)
+
+    * 1a. Compile Bot Client: ```javac -classpath pircbot.jar:. *.java```
+
+    * 2a. Run Bot Client: ```java -classpath pircbot.jar:. BotMain```
+
+    * 3a. Test w/ Chat Client:
+      * Compile: ```javac Chat.java```
+      * Run: ```java Chat```
+        * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
+
     
-3b. Test-- Method 2 (requires JDK enviornment):
-  * Compile: ```javac Chat.java```
-  * Run: ```java Chat```
-    * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
 
 **Windows:**
-1. Compile: ```javac -classpath pircbot.jar;. *.java```
-2. Run: ```java -classpath pircbot.jar;. BotMain```
 
-3a. Test-- Method 1: https://client00.chat.mibbit.com/?channel=%23TeamSameTeam&server=irc.synirc.net
-  * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
-  
-3b. Test-- Method 2 (requires JDK enviornment):
-  * Compile: ```javac Chat.java```
-  * Run: ```java Chat```
-    * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
+* Method 1: (requires JDK enviornment)
+
+    * 1a. Compile Bot Client: ```javac -classpath pircbot.jar;. *.java```
+
+    * 2a. Run Bot Client: ```java -classpath pircbot.jar;. BotMain```
+
+    * 3a. Test w/ Chat Client:
+      * Compile: ```javac Chat.java```
+      * Run: ```java Chat```
+        * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
 
 **Commands:**
 * ```!time```: tells current time for user
@@ -75,5 +83,4 @@ This project consists of two parts: the main Bot client and the Chat client. The
 - [x] Exception handling/backend feedback for bad inputs
 - [x] Establish identity
 - [x] Establish & maintain connection
-- [ ] Multi-channel listening
 - [x] Implement IRC protocol in a chat client
