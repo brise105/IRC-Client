@@ -1,6 +1,6 @@
-*Name: Alfonso Castanos
-*SID: 2283681
-*Class: CPSC 353-02 (Dr.Fahy)
+* Name: Alfonso Castanos
+* SID: 2283681
+* Class: CPSC 353-02 (Dr.Fahy)
 
 # Contributions 
 * Helped get Chat.java to establish a working client connection that stays connected.
