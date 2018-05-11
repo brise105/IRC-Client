@@ -327,6 +327,7 @@ public class Bot extends PircBot {
         String errormsg = "Please enter correct command input. Type '!help' for list of commands";
         sendMessage(channel, sender + ": " + errormsg);
         continue;
+      } else
     } else {
       continue;
     }
