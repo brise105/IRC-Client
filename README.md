@@ -43,7 +43,7 @@ For an idealized chat client, feel free to test out the free web IRC client call
         * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
         * Type: ```!help``` or ```!cmdinfo``` for a list of commands and their expected input
 
-* Method 2: docker (requires docker, JDK, and linux enviornment)
+* Method 2: docker (requires docker, JDK, and linux environment)
 
     * 1b) cd to /IRCClient/botclient/
 
@@ -64,7 +64,7 @@ For an idealized chat client, feel free to test out the free web IRC client call
 
 **Windows:**
 
-* Method 1: non-automated  compile & execution (only requires JDK enviornment)
+* Method 1: non-automated  compile & execution (only requires JDK environment)
 
     * 1a) cd to /IRCClient/chatclient/
 
@@ -88,7 +88,7 @@ For an idealized chat client, feel free to test out the free web IRC client call
 * ```!facto``` n: factorial of n
 * ```!cel``` n: converts n degrees fahrenheit to celsius
 * ```!fahr``` n: converts n degrees celsius to fahrenheit
-* ```!cal```: performs basic arthmetic upon two values: n & m
+* ```!cal```: performs basic arithmetic upon two values: n & m
   * *!cal+space+n+operator+m*
   * *Single operations only!*
 * ```!bin``` n: converts decimal number n to binary

@@ -15,7 +15,7 @@
 * created dockerfiles
 * maintained checkstyles
 * kept team on track
-* wrote and turned in most of the project submissions (accidently turned one in a little late ;_;)
+* wrote and turned in most of the project submissions (accidentally turned one in a little late ;_;)
 * created student research poster
 * attended student research poster workshop
 * attended student research day w/ a functional demo
