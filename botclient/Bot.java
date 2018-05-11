@@ -329,7 +329,7 @@ public class Bot extends PircBot {
           sendMessage(channel, sender + ": " + errormsg);
         }
       } else {
-        System.out.println();
+        System.out.print();
       }
     } catch (StringIndexOutOfBoundsException ex) {
       System.out.println("Error: index out of bounds!");
