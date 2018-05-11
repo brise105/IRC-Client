@@ -1,7 +1,9 @@
 # Brandon's README.md
 
 **Name:** Brandon Briseno 
+
 **SID:** 1932124 
+
 **Class:** CPSC 353-02 (Dr.Fahy)
 
 ## Contributions:
