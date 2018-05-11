@@ -29,15 +29,15 @@ For an idealized chat client, feel free to test out the free web IRC client call
 
 * Method 1: non-automated  compile & execution  (requires JDK)
 
-    * 1a. cd to /IRCClient/botclient/
+    * 1a) cd to /IRCClient/botclient/
 
-    * 2a. Compile Bot Client: ```javac -classpath pircbot.jar:. *.java```
+    * 2a) Compile Bot Client: ```javac -classpath pircbot.jar:. *.java```
 
-    * 3a. Run Bot Client: ```java -classpath pircbot.jar:. BotMain```
+    * 3a) Run Bot Client: ```java -classpath pircbot.jar:. BotMain```
 
-    * 4a. cd to /IRCClient/chatclient/
+    * 4a) cd to /IRCClient/chatclient/
 
-    * 5a. Test w/ Chat Client:
+    * 5a) Test w/ Chat Client:
       * Compile: ```javac Chat.java```
       * Run: ```java Chat```
         * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
@@ -45,17 +45,17 @@ For an idealized chat client, feel free to test out the free web IRC client call
 
 * Method 2: docker (requires docker, JDK, and linux enviornment)
 
-    * 1b. cd to /IRCClient/botclient/
+    * 1b) cd to /IRCClient/botclient/
 
-    * 2b. Build the Bot client's docker image: ```docker image build -t botclient```
+    * 2b) Build the Bot client's docker image: ```docker image build -t botclient```
     
-    * 3b. Run the Bot client's docker image: ```docker container run  --rm  -it botclient```
+    * 3b) Run the Bot client's docker image: ```docker container run  --rm  -it botclient```
 
-    * 4b. Open another terminal and cd to /IRCClient/chatclient/
+    * 4b) Open another terminal and cd to /IRCClient/chatclient/
     
-    * 5b. Build the Bot client's docker image: ```docker image build -t chatclient```
+    * 5b) Build the Bot client's docker image: ```docker image build -t chatclient```
     
-    * 6b. Run the Bot client's docker image: ```docker container run  --rm  -it chatclient```
+    * 6b) Run the Bot client's docker image: ```docker container run  --rm  -it chatclient```
         * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
         * Type: ```!help``` or ```!cmdinfo``` for a list of commands and their expected input
 
@@ -64,15 +64,15 @@ For an idealized chat client, feel free to test out the free web IRC client call
 
 * Method 1: non-automated  compile & execution (only requires JDK enviornment)
 
-    * 1a. cd to /IRCClient/chatclient/
+    * 1a) cd to /IRCClient/chatclient/
 
-    * 2a. Compile Bot Client: ```javac -classpath pircbot.jar;. *.java```
+    * 2a) Compile Bot Client: ```javac -classpath pircbot.jar;. *.java```
 
-    * 3a. Run Bot Client: ```java -classpath pircbot.jar;. BotMain```
+    * 3a) Run Bot Client: ```java -classpath pircbot.jar;. BotMain```
     
-    * 4a. cd to /IRCClient/botclient/
+    * 4a) cd to /IRCClient/botclient/
 
-    * 5a. Test w/ Chat Client:
+    * 5a) Test w/ Chat Client:
       * Compile: ```javac Chat.java```
       * Run: ```java Chat```
         * The nickname you choose must be unique. Two users can't have same unique identifier on same server.
